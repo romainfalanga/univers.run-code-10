@@ -65,7 +65,7 @@ export const SpaceTimeScaleFabricPage: React.FC = () => {
 
           {/* Le tapis roulant - Résumé */}
           <div className="bg-gradient-to-br from-cyan-900/40 to-blue-900/30 backdrop-blur-sm rounded-xl lg:rounded-2xl p-6 sm:p-8 border border-cyan-400/30 shadow-2xl">
-            <h2 className="text-2xl sm:text-3xl font-bold text-cyan-300 mb-4 sm:mb-6">Le Tapis Roulant</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-cyan-300 mb-4 sm:mb-6">Les Tapis Roulants</h2>
 
             <div className="space-y-4 sm:space-y-6">
               <div className="bg-gradient-to-r from-blue-900/40 to-indigo-900/30 p-4 sm:p-6 rounded-lg border-l-4 border-blue-400">
