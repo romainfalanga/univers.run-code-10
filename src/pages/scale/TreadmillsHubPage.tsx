@@ -131,52 +131,6 @@ export const TreadmillsHubPage: React.FC = () => {
               </div>
             </div>
           </div>
-
-          <div className="bg-gradient-to-br from-blue-900/40 to-indigo-900/30 backdrop-blur-sm rounded-xl lg:rounded-2xl p-6 sm:p-8 border border-blue-400/30 shadow-2xl">
-            <h2 className="text-2xl sm:text-3xl font-bold text-blue-300 mb-4 sm:mb-6">L'Harmonie Cosmique</h2>
-
-            <div className="space-y-4 sm:space-y-6">
-              <div className="bg-gradient-to-r from-indigo-900/40 to-blue-900/30 p-4 sm:p-6 rounded-lg border-l-4 border-indigo-400">
-                <p className="text-base sm:text-lg text-indigo-100 leading-relaxed">
-                  Ainsi, chaque objet dans l'univers danse sur son tapis roulant personnel, <strong className="text-white">tous synchronisés sur le même tempo cosmique, mais chacun avec son inclinaison unique</strong>, sculptée par sa vitesse et par l'environnement gravitationnel qui l'entoure.
-                </p>
-              </div>
-
-              <p className="text-base sm:text-lg text-gray-200 leading-relaxed">
-                Un électron près d'une étoile, un photon traversant le vide intergalactique, une galaxie entière : tous descendent leur escalator cosmique à la vitesse de la lumière, mais chacun avec son propre angle, déterminé par sa vitesse et son environnement.
-              </p>
-
-              <div className="bg-gradient-to-r from-cyan-900/40 to-teal-900/30 p-4 sm:p-6 rounded-lg border-l-4 border-cyan-400">
-                <p className="text-base sm:text-lg text-cyan-100 leading-relaxed">
-                  <strong className="text-white">Chaque galaxie, chaque astre, chaque corps possède son tapis roulant intime.</strong> Tous descendent à la même cadence absolue, mais chacun avec son inclinaison singulière. C'est une symphonie cosmique où tous les instruments jouent la même note, mais avec des harmoniques différentes.
-                </p>
-              </div>
-
-              <div className="bg-gradient-to-r from-blue-900/40 to-cyan-900/30 p-4 sm:p-6 rounded-lg border-l-4 border-blue-400">
-                <h3 className="text-lg font-semibold text-blue-200 mb-3">La Symphonie Cosmique</h3>
-                <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
-                  C'est une symphonie où tous les instruments jouent la même note (la vitesse de la lumière), mais avec des harmoniques différentes (les inclinaisons). <strong className="text-white">L'unité dans la diversité, la constance dans la variation</strong> : voilà l'élégance du tissu d'espace-temps-d'échelle unifié. L'univers entier est une chorégraphie d'escalators invisibles, tous synchronisés mais tous uniques.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-gradient-to-br from-violet-900/40 to-fuchsia-900/30 backdrop-blur-sm rounded-xl lg:rounded-2xl p-6 sm:p-8 border border-violet-400/30 shadow-2xl">
-            <h2 className="text-2xl sm:text-3xl font-bold text-violet-300 mb-4 sm:mb-6">Un Seul Moteur, Multiples Inclinaisons</h2>
-
-            <div className="space-y-4 sm:space-y-6">
-              <div className="bg-gradient-to-r from-violet-900/40 to-fuchsia-900/30 p-4 sm:p-6 rounded-lg border-l-4 border-violet-400">
-                <p className="text-base sm:text-lg text-violet-100 leading-relaxed">
-                  La masse et l'énergie n'inventent pas un nouveau moteur, elles ne modifient pas la vitesse universelle. <strong className="text-white">Elles ajoutent seulement un coefficient multiplicateur à l'inclinaison du tapis roulant</strong> par la déformation du tissu de l'espace-temps.
-                </p>
-              </div>
-
-              <p className="text-base sm:text-lg text-gray-200 leading-relaxed">
-                C'est là toute l'élégance de ce modèle : il n'y a qu'un seul moteur universel, la vitesse de la lumière, mais une infinité d'inclinaisons possibles selon l'environnement gravitationnel et la vitesse de chaque objet. Cette vision unifiée combine les effets de la relativité restreinte (vitesse) et de la relativité générale (masse et énergie) dans un seul cadre cohérent à cinq dimensions.
-              </p>
-            </div>
-          </div>
-
         </div>
       </div>
     </div>
