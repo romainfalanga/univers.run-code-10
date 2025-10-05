@@ -49,26 +49,8 @@ export const DarkEnergyPage: React.FC = () => {
               </p>
             </div>
           </div>
-
-          <div className="bg-gradient-to-br from-cyan-900/40 to-teal-900/30 backdrop-blur-sm rounded-xl lg:rounded-2xl p-6 sm:p-8 border border-cyan-400/30 shadow-2xl">
-            <h2 className="text-2xl sm:text-3xl font-bold text-cyan-300 mb-4 sm:mb-6">Une Explication Alternative</h2>
-
-            <div className="space-y-4 sm:space-y-6">
-              <p className="text-base sm:text-lg text-gray-200 leading-relaxed">
-                Dans le modèle de la Relativité des échelles, <strong className="text-cyan-300">l'accélération apparente de l'expansion s'explique naturellement sans recourir à l'énergie sombre</strong>.
-              </p>
-
-              <div className="bg-gradient-to-r from-teal-900/40 to-cyan-900/30 p-4 sm:p-6 rounded-lg border-l-4 border-teal-400">
-                <h3 className="text-lg font-semibold text-teal-200 mb-3">La Descente d'Échelle Non-Linéaire</h3>
-                <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
-                  La descente d'échelle n'est pas linéaire. Plus un objet est loin, plus il a accumulé de descente d'échelle, et plus cette descente s'accélère. <strong className="text-white">Cet effet cumulatif crée naturellement l'apparence d'une accélération</strong>.
-                </p>
-              </div>
-            </div>
-          </div>
-
           <div className="bg-gradient-to-br from-indigo-900/40 to-purple-900/30 backdrop-blur-sm rounded-xl lg:rounded-2xl p-6 sm:p-8 border border-indigo-400/30 shadow-2xl">
-            <h2 className="text-2xl sm:text-3xl font-bold text-indigo-300 mb-4 sm:mb-6">Les Implications</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-indigo-300 mb-4 sm:mb-6">Avec la relativité des échelles</h2>
 
             <div className="space-y-4 sm:space-y-6">
               <p className="text-base sm:text-lg text-gray-200 leading-relaxed">
