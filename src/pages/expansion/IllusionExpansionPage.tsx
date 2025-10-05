@@ -51,7 +51,7 @@ export const IllusionExpansionPage: React.FC = () => {
           </div>
 
           <div className="bg-gradient-to-br from-purple-900/40 to-pink-900/30 backdrop-blur-sm rounded-xl lg:rounded-2xl p-6 sm:p-8 border border-purple-400/30 shadow-2xl">
-            <h2 className="text-2xl sm:text-3xl font-bold text-purple-300 mb-4 sm:mb-6">Ce qui Se Passe Réellement</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-purple-300 mb-4 sm:mb-6">Avec la relativité des échelles</h2>
 
             <div className="space-y-4 sm:space-y-6">
               <p className="text-base sm:text-lg text-gray-200 leading-relaxed">
@@ -61,7 +61,7 @@ export const IllusionExpansionPage: React.FC = () => {
               <div className="bg-gradient-to-r from-purple-900/40 to-pink-900/30 p-4 sm:p-6 rounded-lg border-l-4 border-purple-400">
                 <h3 className="text-lg font-semibold text-purple-200 mb-3">La Contraction Universelle</h3>
                 <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
-                  Ce n'est pas l'espace entre les galaxies qui augmente, c'est <strong className="text-white">chaque galaxie qui se contracte dans sa propre dimension d'échelle</strong>. Quand deux objets descendent leurs escalators respectifs avec des inclinaisons différentes, ils créent l'illusion d'un éloignement mutuel.
+                  Ce n'est pas l'espace entre les galaxies qui augmente, c'est <strong className="text-white">chaque galaxie qui se contracte dans sa propre dimension d'échelle</strong>. Quand deux objets descendent leurs tapis roulants respectifs avec des inclinaisons différentes, ils créent l'illusion d'un éloignement mutuel.
                 </p>
               </div>
             </div>
