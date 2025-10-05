@@ -39,9 +39,6 @@ export const TapisRoulantFabricPage: React.FC = () => {
 
           <div className="bg-white/10 backdrop-blur-sm rounded-xl lg:rounded-2xl p-6 sm:p-8 border border-white/20 shadow-2xl">
             <div className="space-y-4 sm:space-y-6">
-              <div className="bg-gradient-to-r from-blue-900/40 to-indigo-900/30 p-4 sm:p-6 rounded-lg border-l-4 border-blue-400">
-              </div>
-
               <p className="text-base sm:text-lg text-gray-200 leading-relaxed">
                 <strong className="text-cyan-300">Tout ce qui existe dans l'univers voyage sur son propre tapis roulant invisible.</strong> Que ce soit une étoile, une planète, un homme, un grain de poussière : chacun descend son propre tapis roulant à travers les cinq dimensions.
               </p>
