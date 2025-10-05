@@ -25,17 +25,17 @@ export const UniversalEscalatorPage: React.FC = () => {
 
         <header className="text-center mb-6 sm:mb-8 lg:mb-12">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-purple-300 via-indigo-300 to-blue-300 bg-clip-text text-transparent bg-[length:400%_400%] animate-gradient-x drop-shadow-[0_0_30px_rgba(147,51,234,0.8)] mb-3 sm:mb-4 px-2">
-            Le tapis roulant
+            Les tapis roulants
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-purple-200/90 max-w-4xl mx-auto px-4 leading-relaxed">
-            Comment la masse incline le tapis roulant cosmique
+            Comment la masse incline les tapis roulants
           </p>
         </header>
 
         <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8 lg:space-y-10">
 
           <div className="bg-white/10 backdrop-blur-sm rounded-xl lg:rounded-2xl p-6 sm:p-8 border border-white/20 shadow-2xl">
-            <h2 className="text-2xl sm:text-3xl font-bold text-purple-300 mb-4 sm:mb-6">Le Tapis Roulant et son Moteur</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-purple-300 mb-4 sm:mb-6">Les Tapis Roulants</h2>
 
             <div className="space-y-4 sm:space-y-6">
               <div className="bg-gradient-to-r from-purple-900/40 to-indigo-900/30 p-4 sm:p-6 rounded-lg border-l-4 border-purple-400">
