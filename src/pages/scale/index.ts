@@ -1,0 +1,1 @@
+export { TreadmillsHubPage } from './TreadmillsHubPage';
