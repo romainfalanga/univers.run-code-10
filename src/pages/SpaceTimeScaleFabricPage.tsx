@@ -83,7 +83,7 @@ export const SpaceTimeScaleFabricPage: React.FC = () => {
                   to="/tissu-espace-temps-echelle/tapis-roulant"
                   className="group flex items-center justify-center px-6 py-3 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 hover:shadow-cyan-500/25 text-white rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
                 >
-                  Le Tapis Roulant
+                  Les Tapis Roulants
                 </Link>
               </div>
             </div>
