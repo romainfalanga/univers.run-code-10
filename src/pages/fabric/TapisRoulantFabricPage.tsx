@@ -40,9 +40,6 @@ export const TapisRoulantFabricPage: React.FC = () => {
           <div className="bg-white/10 backdrop-blur-sm rounded-xl lg:rounded-2xl p-6 sm:p-8 border border-white/20 shadow-2xl">
             <div className="space-y-4 sm:space-y-6">
               <div className="bg-gradient-to-r from-blue-900/40 to-indigo-900/30 p-4 sm:p-6 rounded-lg border-l-4 border-blue-400">
-                <p className="text-base sm:text-lg text-blue-100 leading-relaxed font-semibold">
-                  Ensemble, ils forment un seul tissu : <strong className="text-white">le tissu d'espace-temps-d'échelle</strong>. Ce tissu est entraîné par un moteur universel : la vitesse de la lumière.
-                </p>
               </div>
 
               <p className="text-base sm:text-lg text-gray-200 leading-relaxed">
