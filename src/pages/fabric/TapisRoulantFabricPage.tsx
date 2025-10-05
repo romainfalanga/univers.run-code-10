@@ -52,21 +52,21 @@ export const TapisRoulantFabricPage: React.FC = () => {
               <div className="bg-gradient-to-r from-cyan-900/40 to-teal-900/30 p-4 sm:p-6 rounded-lg border-l-4 border-cyan-400">
                 <h3 className="text-lg font-semibold text-cyan-200 mb-3">La Vitesse Universelle</h3>
                 <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
-                  Ce moteur ne varie jamais. Il bat comme un métronome cosmique, entraînant tout l'univers dans sa cadence. Chaque particule, chaque atome, chaque être vivant descend ce tapis roulant universel à exactement la même vitesse : <strong className="text-white">299 792 458 mètres par seconde</strong>.
+                  Ce moteur ne varie jamais. Il bat comme un métronome cosmique, entraînant tout l'univers dans sa cadence. Chaque particule, chaque atome, chaque être vivant descend son tapis roulant exactement à la même vitesse : <strong className="text-white">299 792 458 mètres par seconde</strong>.
                 </p>
               </div>
 
               <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/20 p-4 sm:p-6 rounded-lg border-l-4 border-purple-400">
                 <h3 className="text-lg font-semibold text-purple-300 mb-3">L'Inclinaison Variable</h3>
                 <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
-                  <strong className="text-white">Tout descend toujours à ce rythme, sans exception.</strong> La seule différence, c'est l'inclinaison du tapis roulant : plus ou moins raide selon la vitesse spatiale. Plus vous allez vite dans l'espace, plus votre tapis roulant s'incline vers l'échelle.
+                  <strong className="text-white">Tout descend toujours à ce rythme, sans exception.</strong> La seule différence, c'est l'inclinaison de son tapis roulant : plus ou moins raide selon la vitesse spatiale. Plus vous allez vite dans l'espace, plus votre tapis roulant s'incline vers l'échelle.
                 </p>
               </div>
 
               <div className="bg-gradient-to-r from-indigo-900/40 to-blue-900/30 p-4 sm:p-6 rounded-lg border-l-4 border-indigo-400">
                 <h3 className="text-lg font-semibold text-indigo-200 mb-3">Le Rôle de la Masse</h3>
                 <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
-                  La masse, elle aussi, influence l'inclinaison du tapis roulant. <strong className="text-white">Plus un objet est massif ou proche d'une grande masse, plus son tapis roulant penche vers l'échelle</strong>. C'est la courbure de l'espace-temps qui se traduit par une inclinaison du tapis roulant dans le tissu complet.
+                  La masse, elle aussi, influence l'inclinaison de son tapis roulant. <strong className="text-white">Plus un objet est massif ou proche d'une grande masse, plus son tapis roulant penche vers l'échelle</strong>. C'est la courbure de l'espace-temps qui se traduit par une inclinaison du tapis roulant dans le tissu complet.
                 </p>
               </div>
 
