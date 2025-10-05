@@ -43,11 +43,6 @@ export const TreadmillsHubPage: React.FC = () => {
                   <strong className="text-white">Tout ce qui existe dans l'univers voyage sur son propre tapis roulant invisible.</strong> Que ce soit une étoile, une planète, un homme, un grain de poussière : chacun descend son propre tapis roulant à travers les cinq dimensions.
                 </p>
               </div>
-
-              <p className="text-base sm:text-lg text-gray-200 leading-relaxed">
-                Ce tapis roulant n'est pas une métaphore : c'est le mouvement réel à travers les dimensions de l'univers. Trois dimensions d'espace, une de temps, et une d'échelle. Chaque particule, chaque atome, chaque structure cosmique descend son propre escalator vers l'infiniment petit, entraîné par le moteur universel.
-              </p>
-
               <p className="text-base sm:text-lg text-gray-200 leading-relaxed">
                 Ce mouvement a une cadence absolue : <strong className="text-purple-300">299 792 458 mètres par seconde</strong> — la vitesse de la lumière. C'est le tempo cosmique, le métronome universel qui bat sans jamais ralentir ni accélérer.
               </p>
