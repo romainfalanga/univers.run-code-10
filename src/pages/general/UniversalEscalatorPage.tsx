@@ -72,23 +72,6 @@ export const UniversalEscalatorPage: React.FC = () => {
               </div>
             </div>
           </div>
-
-          <div className="bg-gradient-to-br from-cyan-900/40 to-blue-900/30 backdrop-blur-sm rounded-xl lg:rounded-2xl p-6 sm:p-8 border border-cyan-400/30 shadow-2xl">
-            <h2 className="text-2xl sm:text-3xl font-bold text-cyan-300 mb-4 sm:mb-6">Un Moteur Invariant</h2>
-
-            <div className="space-y-4 sm:space-y-6">
-              <p className="text-base sm:text-lg text-gray-200 leading-relaxed">
-                <strong className="text-cyan-300">Le moteur universel reste toujours le même : la vitesse de la lumière.</strong> La masse n'ajoute pas de vitesse supplémentaire, elle ne change pas le rythme cosmique. Elle modifie seulement l'angle de descente.
-              </p>
-
-              <div className="bg-gradient-to-r from-blue-900/40 to-indigo-900/30 p-4 sm:p-6 rounded-lg border-l-4 border-blue-400">
-                <p className="text-base sm:text-lg text-blue-100 leading-relaxed">
-                  C'est toute l'élégance de ce modèle : <strong className="text-white">un seul moteur, une infinité d'inclinaisons</strong>. La vitesse de la lumière entraîne tout, et la distribution de masse et d'énergie dans l'univers détermine l'angle de chaque descente individuelle.
-                </p>
-              </div>
-            </div>
-          </div>
-
           <div className="flex justify-end items-center">
             <Link
               to="/relativite-generale-echelles/environnements"
