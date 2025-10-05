@@ -110,56 +110,6 @@ export const TreadmillsHubPage: React.FC = () => {
               </div>
             </div>
           </div>
-
-          <div className="bg-gradient-to-br from-emerald-900/40 to-teal-900/30 backdrop-blur-sm rounded-xl lg:rounded-2xl p-6 sm:p-8 border border-emerald-400/30 shadow-2xl">
-            <h2 className="text-2xl sm:text-3xl font-bold text-emerald-300 mb-4 sm:mb-6">Les Configurations du Tapis Roulant</h2>
-
-            <div className="space-y-4 sm:space-y-6">
-              <p className="text-base sm:text-lg text-gray-200 leading-relaxed">
-                Selon la vitesse et l'environnement gravitationnel, le tapis roulant peut prendre différentes inclinaisons. Voici les trois configurations principales :
-              </p>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-green-900/20 p-4 rounded-lg border border-green-400/30 text-center">
-                  <h4 className="font-semibold text-green-300 mb-2">Tapis Roulant Plat</h4>
-                  <p className="text-xs sm:text-sm text-gray-300 mb-2">Objet au repos, faible masse environnante</p>
-                  <p className="text-xs text-green-200 mt-2">
-                    <strong>Budget ET :</strong> Temps maximum, espace minimal<br/>
-                    <strong>Budget TE :</strong> Temps maximum, échelle minimale
-                  </p>
-                  <p className="text-xs text-gray-400 mt-2">Avancement surtout dans le temps, descente d'échelle imperceptible</p>
-                </div>
-
-                <div className="bg-yellow-900/20 p-4 rounded-lg border border-yellow-400/30 text-center">
-                  <h4 className="font-semibold text-yellow-300 mb-2">Tapis Roulant Incliné</h4>
-                  <p className="text-xs sm:text-sm text-gray-300 mb-2">Vitesse modérée, masse importante</p>
-                  <p className="text-xs text-yellow-200 mt-2">
-                    <strong>Budget ET :</strong> Partage équilibré<br/>
-                    <strong>Budget TE :</strong> Partage équilibré
-                  </p>
-                  <p className="text-xs text-gray-400 mt-2">Répartition équilibrée entre temps, espace et échelle</p>
-                </div>
-
-                <div className="bg-red-900/20 p-4 rounded-lg border border-red-400/30 text-center">
-                  <h4 className="font-semibold text-red-300 mb-2">Tapis Roulant Vertical</h4>
-                  <p className="text-xs sm:text-sm text-gray-300 mb-2">Vitesse extrême, masse énorme</p>
-                  <p className="text-xs text-red-200 mt-2">
-                    <strong>Budget ET :</strong> Espace maximum, temps minimal<br/>
-                    <strong>Budget TE :</strong> Échelle maximum, temps minimal
-                  </p>
-                  <p className="text-xs text-gray-400 mt-2">Plongée vertigineuse dans l'échelle, temps presque figé</p>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-r from-teal-900/40 to-cyan-900/30 p-4 sm:p-6 rounded-lg border-l-4 border-teal-400">
-                <h3 className="text-lg font-semibold text-teal-200 mb-3">Le Partage Universel</h3>
-                <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
-                  Votre vitesse spatiale et l'environnement gravitationnel déterminent ensemble l'inclinaison de votre tapis roulant. <strong className="text-white">Plus vous allez vite spatialement et plus la courbure est forte, moins vous avancez temporellement, et plus vous plongez dans l'échelle.</strong> C'est la relativité étendue : votre budget universel se répartit entre trois dimensions (espace, temps, échelle), mais la somme reste toujours égale à la vitesse de la lumière.
-                </p>
-              </div>
-            </div>
-          </div>
-
           <div className="bg-gradient-to-br from-orange-900/40 to-red-900/30 backdrop-blur-sm rounded-xl lg:rounded-2xl p-6 sm:p-8 border border-orange-400/30 shadow-2xl">
             <h2 className="text-2xl sm:text-3xl font-bold text-orange-300 mb-4 sm:mb-6">Exemples Concrets</h2>
 
