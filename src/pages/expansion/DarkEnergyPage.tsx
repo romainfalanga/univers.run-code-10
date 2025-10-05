@@ -63,13 +63,6 @@ export const DarkEnergyPage: React.FC = () => {
                   Au lieu d'ajouter une nouvelle forme d'énergie inconnue qui compose la majorité de l'univers, nous reconnaissons simplement qu'une dimension supplémentaire était là depuis le début. <strong className="text-white">Le rasoir d'Occam favorise souvent l'explication la plus simple</strong>.
                 </p>
               </div>
-
-              <div className="bg-gradient-to-r from-pink-900/40 to-red-900/30 p-4 sm:p-6 rounded-lg border-l-4 border-pink-400">
-                <h3 className="text-lg font-semibold text-pink-200 mb-3">Testabilité</h3>
-                <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
-                  Ce modèle fait des prédictions spécifiques qui pourraient être testées par de futures observations. <strong className="text-white">La différence entre une véritable expansion de l'espace et une contraction d'échelle pourrait être détectable</strong>.
-                </p>
-              </div>
             </div>
           </div>
 
