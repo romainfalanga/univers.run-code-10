@@ -25,7 +25,7 @@ import { TreadmillsHubPage } from './pages/scale';
 const AppContent: React.FC = () => {
 
   return (
-    <div className="relative pb-24">
+    <div className="relative">
       <Navigation />
 
       <Routes>
