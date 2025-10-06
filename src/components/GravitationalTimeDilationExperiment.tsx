@@ -56,6 +56,7 @@ export const GravitationalTimeDilationExperiment: React.FC = () => {
   const schwarzschildRadius = calculateSchwarzschildRadius(mass);
   const density = calculateDensity(mass, radius);
   const isBlackHole = radius <= schwarzschildRadius;
+  const isNearBlackHole = radius < schwarzschildRadius * 2;
   const matchingBody = findMatchingCelestialBody(mass, radius);
 
   const dilationAtSurface = calculateTimeDilationAtSurface(mass, radius);
@@ -338,23 +339,42 @@ export const GravitationalTimeDilationExperiment: React.FC = () => {
           </div>
         )}
 
-        {!matchingBody && isBlackHole && (
+        {isBlackHole && (
           <div className="mt-4 bg-red-100 border-l-4 border-red-500 p-4 rounded-lg">
             <div className="flex items-start">
               <AlertTriangle className="w-5 h-5 text-red-600 mr-3 flex-shrink-0 mt-0.5" />
               <div>
                 <h3 className="text-sm font-bold text-red-800 mb-1">Trou Noir Formé</h3>
+                <p className="text-xs text-red-700 leading-relaxed mb-2">
+                  <strong>ATTENTION:</strong> Le rayon de l'astre (R = {formatRadius(radius)}) est inférieur ou égal
+                  au rayon de Schwarzschild (Rs = {schwarzschildRadius < 1000 ? `${schwarzschildRadius.toFixed(3)} km` : `${(schwarzschildRadius / 1000).toFixed(2)} × 10³ km`}).
+                </p>
                 <p className="text-xs text-red-700 leading-relaxed">
-                  Le rayon de l'astre est inférieur ou égal au rayon de Schwarzschild. Un horizon
-                  des événements s'est formé. Les calculs de dilatation temporelle à l'intérieur ne
-                  sont plus valides avec la métrique de Schwarzschild standard.
+                  Un horizon des événements s'est formé. Les formules de dilatation temporelle utilisées ici
+                  ne sont valides qu'à l'<strong>extérieur</strong> de l'horizon. À l'intérieur d'un trou noir,
+                  les rôles du temps et de l'espace sont échangés, et les concepts habituels ne s'appliquent plus.
                 </p>
               </div>
             </div>
           </div>
         )}
 
-        {!matchingBody && !isBlackHole && (
+        {!isBlackHole && isNearBlackHole && (
+          <div className="mt-4 bg-orange-100 border-l-4 border-orange-500 p-4 rounded-lg">
+            <div className="flex items-start">
+              <AlertTriangle className="w-5 h-5 text-orange-600 mr-3 flex-shrink-0 mt-0.5" />
+              <div>
+                <h3 className="text-sm font-bold text-orange-800 mb-1">Configuration Extrême</h3>
+                <p className="text-xs text-orange-700 leading-relaxed">
+                  Le rayon de l'astre (R = {(radius / schwarzschildRadius).toFixed(2)}×Rs) est proche du rayon de Schwarzschild.
+                  Les effets gravitationnels sont extrêmes. Cette configuration pourrait être instable et s'effondrer en trou noir.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {!matchingBody && !isBlackHole && !isNearBlackHole && (
           <div className="mt-4 bg-gray-100 border-l-4 border-gray-400 p-4 rounded-lg">
             <div className="flex items-start">
               <Info className="w-5 h-5 text-gray-600 mr-3 flex-shrink-0 mt-0.5" />
@@ -464,21 +484,34 @@ export const GravitationalTimeDilationExperiment: React.FC = () => {
         <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
           <p>
             <strong className="text-slate-700">Métrique de Schwarzschild extérieure:</strong> Pour
-            l'observateur à la surface, le facteur de dilatation est donné par dτ/dt = √(1 - 2GM/rc²),
-            où M est la masse, r le rayon, G la constante gravitationnelle et c la vitesse de la
-            lumière.
+            l'observateur à la surface, le facteur de dilatation est donné par dτ/dt = √(1 - Rs/R),
+            où Rs = 2GM/c² est le rayon de Schwarzschild, R le rayon de l'astre, G la constante gravitationnelle
+            et c la vitesse de la lumière.
           </p>
           <p>
             <strong className="text-slate-700">Solution intérieure de Schwarzschild:</strong> Pour
-            l'observateur au centre d\'une sphère de densité uniforme, le facteur est dτ/dt = (3/2)√(1 -
-            2GM/R) - 1/2, où R est le rayon de l'astre.
+            l'observateur au centre d'une sphère de densité uniforme, le facteur est dτ/dt = (3/2)√(1 - Rs/R) - 1/2,
+            où R est le rayon de l'astre.
+          </p>
+          <p>
+            <strong className="text-slate-700">Multiplicateur temporel:</strong> Le multiplicateur affiché
+            est l'inverse du facteur au centre: 1/(dτ/dt). Il représente combien de fois plus vite le temps
+            s'écoule pour un observateur lointain par rapport au centre de l'astre.
           </p>
           <p>
             <strong className="text-slate-700">Interprétation physique:</strong> Plus un
             observateur est proche d'une grande concentration de masse-énergie, plus le temps
-            s'écoule lentement pour lui par rapport à un observateur éloigné. C\'est la courbure de la
+            s'écoule lentement pour lui par rapport à un observateur éloigné. C'est la courbure de la
             composante temporelle de l'espace-temps qui provoque ce ralentissement.
           </p>
+          <div className="bg-amber-50 border-l-4 border-amber-400 p-3 rounded mt-3">
+            <p className="text-xs text-amber-800">
+              <strong>Limites de validité:</strong> Ces formules ne sont valides que lorsque R &gt; Rs.
+              Si R ≤ Rs, un trou noir se forme et ces équations ne s'appliquent plus à l'intérieur de l'horizon
+              des événements. Dans ce cas extrême, les rôles du temps et de l'espace sont inversés et les
+              prédictions de la relativité générale deviennent contre-intuitives.
+            </p>
+          </div>
         </div>
       </div>
     </div>

@@ -100,24 +100,20 @@ export const calculateSchwarzschildRadius = (massKg: number): number => {
 };
 
 export const calculateTimeDilationAtSurface = (massKg: number, radiusKm: number): number => {
-  const c = SPEED_OF_LIGHT * 1000;
-  const r = radiusKm * 1000;
-  const rs = calculateSchwarzschildRadius(massKg) * 1000;
+  const rs = calculateSchwarzschildRadius(massKg);
 
-  const factor = 1 - (rs / r);
-  if (factor <= 0) return 0;
+  if (radiusKm <= rs) return 0;
 
+  const factor = 1 - (rs / radiusKm);
   return Math.sqrt(factor);
 };
 
 export const calculateTimeDilationAtCenter = (massKg: number, radiusKm: number): number => {
-  const c = SPEED_OF_LIGHT * 1000;
-  const R = radiusKm * 1000;
-  const rs = calculateSchwarzschildRadius(massKg) * 1000;
+  const rs = calculateSchwarzschildRadius(massKg);
 
-  const factor = 1 - (rs / R);
-  if (factor <= 0) return 0;
+  if (radiusKm <= rs) return 0;
 
+  const factor = 1 - (rs / radiusKm);
   const term1 = (3 / 2) * Math.sqrt(factor);
   const term2 = 1 / 2;
 
@@ -125,18 +121,15 @@ export const calculateTimeDilationAtCenter = (massKg: number, radiusKm: number):
 };
 
 export const calculateTimeDilationAtDistance = (massKg: number, radiusKm: number, distanceKm: number): number => {
+  const rs = calculateSchwarzschildRadius(massKg);
+
+  if (radiusKm <= rs) return 0;
+
   if (distanceKm <= radiusKm) {
-    const c = SPEED_OF_LIGHT * 1000;
-    const R = radiusKm * 1000;
-    const r = distanceKm * 1000;
-    const rs = calculateSchwarzschildRadius(massKg) * 1000;
-
-    const factorSurface = 1 - (rs / R);
-    if (factorSurface <= 0) return 0;
-
-    const rRatio = r / R;
+    const rRatio = distanceKm / radiusKm;
+    const factorSurface = 1 - (rs / radiusKm);
     const term1 = (3 / 2) * Math.sqrt(factorSurface);
-    const term2 = (1 / 2) * Math.sqrt(1 - (rs * rRatio * rRatio) / R);
+    const term2 = (1 / 2) * Math.sqrt(1 - (rs * rRatio * rRatio) / radiusKm);
 
     return term1 - term2;
   } else {
@@ -378,8 +371,13 @@ export const calculateAutoRadius = (mass: number): number => {
 };
 
 export const calculateTimeDilationFactor = (massKg: number, radiusKm: number): number => {
+  const rs = calculateSchwarzschildRadius(massKg);
+
+  if (radiusKm <= rs) return Infinity;
+
   const dilationAtCenter = calculateTimeDilationAtCenter(massKg, radiusKm);
-  if (dilationAtCenter <= 0) return Infinity;
+  if (dilationAtCenter <= 0 || dilationAtCenter >= 1) return 1;
+
   return 1 / dilationAtCenter;
 };
 
@@ -402,14 +400,14 @@ export const findMassRadiusForDilationFactor = (targetFactor: number): { mass: n
 
     const rs = calculateSchwarzschildRadius(mass);
 
-    let radiusMin = rs * 1.01;
+    let radiusMin = rs * 1.5;
     let radiusMax = rs * 1000;
 
     for (let j = 0; j < 50; j++) {
       const radius = (radiusMin + radiusMax) / 2;
       const currentFactor = calculateTimeDilationFactor(mass, radius);
 
-      if (!isFinite(currentFactor)) {
+      if (!isFinite(currentFactor) || currentFactor === Infinity || currentFactor < 1) {
         radiusMin = radius;
         continue;
       }
