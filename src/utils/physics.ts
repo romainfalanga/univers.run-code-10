@@ -1,6 +1,11 @@
 import { DataPoint } from '../types';
 
 export const SPEED_OF_LIGHT = 299792.458;
+export const GRAVITATIONAL_CONSTANT = 6.67430e-11;
+export const SOLAR_MASS = 1.989e30;
+export const EARTH_MASS = 5.972e24;
+export const EARTH_RADIUS = 6371;
+export const SOLAR_RADIUS = 695700;
 
 export const calculateGamma = (velocity: number): number => {
   const vFraction = velocity / SPEED_OF_LIGHT;
@@ -88,3 +93,107 @@ export const formatTime = (seconds: number): string => {
     return `${years} an${years > 1 ? 's' : ''} ${months} mois`;
   }
 };
+
+export const calculateSchwarzschildRadius = (massKg: number): number => {
+  const c = SPEED_OF_LIGHT * 1000;
+  return (2 * GRAVITATIONAL_CONSTANT * massKg) / (c * c) / 1000;
+};
+
+export const calculateTimeDilationAtSurface = (massKg: number, radiusKm: number): number => {
+  const c = SPEED_OF_LIGHT * 1000;
+  const r = radiusKm * 1000;
+  const rs = calculateSchwarzschildRadius(massKg) * 1000;
+
+  const factor = 1 - (rs / r);
+  if (factor <= 0) return 0;
+
+  return Math.sqrt(factor);
+};
+
+export const calculateTimeDilationAtCenter = (massKg: number, radiusKm: number): number => {
+  const c = SPEED_OF_LIGHT * 1000;
+  const R = radiusKm * 1000;
+  const rs = calculateSchwarzschildRadius(massKg) * 1000;
+
+  const factor = 1 - (rs / R);
+  if (factor <= 0) return 0;
+
+  const term1 = (3 / 2) * Math.sqrt(factor);
+  const term2 = 1 / 2;
+
+  return term1 - term2;
+};
+
+export const calculateTimeDilationAtDistance = (massKg: number, radiusKm: number, distanceKm: number): number => {
+  if (distanceKm <= radiusKm) {
+    const c = SPEED_OF_LIGHT * 1000;
+    const R = radiusKm * 1000;
+    const r = distanceKm * 1000;
+    const rs = calculateSchwarzschildRadius(massKg) * 1000;
+
+    const factorSurface = 1 - (rs / R);
+    if (factorSurface <= 0) return 0;
+
+    const rRatio = r / R;
+    const term1 = (3 / 2) * Math.sqrt(factorSurface);
+    const term2 = (1 / 2) * Math.sqrt(1 - (rs * rRatio * rRatio) / R);
+
+    return term1 - term2;
+  } else {
+    return calculateTimeDilationAtSurface(massKg, distanceKm);
+  }
+};
+
+export const calculateDensity = (massKg: number, radiusKm: number): number => {
+  const radiusM = radiusKm * 1000;
+  const volume = (4 / 3) * Math.PI * Math.pow(radiusM, 3);
+  return massKg / volume;
+};
+
+export const formatMass = (massKg: number): string => {
+  if (massKg >= SOLAR_MASS) {
+    return `${(massKg / SOLAR_MASS).toFixed(2)} masses solaires`;
+  } else if (massKg >= EARTH_MASS) {
+    return `${(massKg / EARTH_MASS).toFixed(2)} masses terrestres`;
+  } else {
+    return `${massKg.toExponential(2)} kg`;
+  }
+};
+
+export const formatRadius = (radiusKm: number): string => {
+  if (radiusKm >= SOLAR_RADIUS) {
+    return `${(radiusKm / SOLAR_RADIUS).toFixed(2)} rayons solaires`;
+  } else if (radiusKm >= EARTH_RADIUS) {
+    return `${(radiusKm / EARTH_RADIUS).toFixed(2)} rayons terrestres`;
+  } else {
+    return `${radiusKm.toLocaleString('fr-FR', { maximumFractionDigits: 0 })} km`;
+  }
+};
+
+export const formatDensity = (densityKgPerM3: number): string => {
+  if (densityKgPerM3 >= 1e15) {
+    return `${(densityKgPerM3 / 1e18).toExponential(2)} × 10¹⁸ kg/m³`;
+  } else if (densityKgPerM3 >= 1e9) {
+    return `${(densityKgPerM3 / 1e9).toExponential(2)} × 10⁹ kg/m³`;
+  } else if (densityKgPerM3 >= 1e6) {
+    return `${(densityKgPerM3 / 1e6).toExponential(2)} × 10⁶ kg/m³`;
+  } else if (densityKgPerM3 >= 1000) {
+    return `${(densityKgPerM3 / 1000).toFixed(2)} × 10³ kg/m³`;
+  } else {
+    return `${densityKgPerM3.toFixed(2)} kg/m³`;
+  }
+};
+
+export interface CelestialPreset {
+  name: string;
+  mass: number;
+  radius: number;
+}
+
+export const CELESTIAL_PRESETS: CelestialPreset[] = [
+  { name: 'Terre', mass: EARTH_MASS, radius: EARTH_RADIUS },
+  { name: 'Jupiter', mass: 1.898e27, radius: 69911 },
+  { name: 'Soleil', mass: SOLAR_MASS, radius: SOLAR_RADIUS },
+  { name: 'Naine Blanche', mass: SOLAR_MASS * 0.6, radius: 5000 },
+  { name: 'Étoile à Neutrons', mass: SOLAR_MASS * 1.4, radius: 10 },
+];
