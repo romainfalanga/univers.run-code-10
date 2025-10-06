@@ -376,3 +376,63 @@ export const calculateAutoRadius = (mass: number): number => {
     }
   }
 };
+
+export const calculateTimeDilationFactor = (massKg: number, radiusKm: number): number => {
+  const dilationAtCenter = calculateTimeDilationAtCenter(massKg, radiusKm);
+  if (dilationAtCenter <= 0) return Infinity;
+  return 1 / dilationAtCenter;
+};
+
+export const findMassRadiusForDilationFactor = (targetFactor: number): { mass: number; radius: number } => {
+  if (targetFactor <= 1) {
+    return { mass: EARTH_MASS, radius: EARTH_RADIUS };
+  }
+
+  let mass = EARTH_MASS;
+  let bestMass = mass;
+  let bestRadius = EARTH_RADIUS;
+  let bestDiff = Infinity;
+
+  const maxIterations = 200;
+  const tolerance = 0.01;
+
+  for (let i = 0; i < maxIterations; i++) {
+    const massScale = Math.pow(10, (i / maxIterations) * 12 - 2);
+    mass = EARTH_MASS * massScale;
+
+    const rs = calculateSchwarzschildRadius(mass);
+
+    let radiusMin = rs * 1.01;
+    let radiusMax = rs * 1000;
+
+    for (let j = 0; j < 50; j++) {
+      const radius = (radiusMin + radiusMax) / 2;
+      const currentFactor = calculateTimeDilationFactor(mass, radius);
+
+      if (!isFinite(currentFactor)) {
+        radiusMin = radius;
+        continue;
+      }
+
+      const diff = Math.abs(currentFactor - targetFactor);
+
+      if (diff < bestDiff) {
+        bestDiff = diff;
+        bestMass = mass;
+        bestRadius = radius;
+      }
+
+      if (diff < tolerance) {
+        return { mass: bestMass, radius: bestRadius };
+      }
+
+      if (currentFactor < targetFactor) {
+        radiusMin = radius;
+      } else {
+        radiusMax = radius;
+      }
+    }
+  }
+
+  return { mass: bestMass, radius: bestRadius };
+};

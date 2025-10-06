@@ -17,26 +17,41 @@ import {
   findMatchingCelestialBody,
   getCategoryColor,
   getCategoryDescription,
+  calculateTimeDilationFactor,
+  findMassRadiusForDilationFactor,
 } from '../utils/physics';
 import { TimeDilationChart } from './TimeDilationChart';
 
 type MassUnit = 'earth' | 'solar';
-type RadiusMode = 'auto' | 'manual';
+type ControlMode = 'factor' | 'manual';
 
 export const GravitationalTimeDilationExperiment: React.FC = () => {
   const [massUnit, setMassUnit] = useState<MassUnit>('earth');
-  const [radiusMode, setRadiusMode] = useState<RadiusMode>('auto');
+  const [controlMode, setControlMode] = useState<ControlMode>('factor');
   const [massValue, setMassValue] = useState<number>(1);
   const [radius, setRadius] = useState<number>(EARTH_RADIUS);
+  const [dilationFactor, setDilationFactor] = useState<number>(1);
   const [referenceTime, setReferenceTime] = useState<number>(86400);
+  const [lastChanged, setLastChanged] = useState<'factor' | 'params'>('factor');
 
   const mass = massUnit === 'earth' ? massValue * EARTH_MASS : massValue * SOLAR_MASS;
 
   useEffect(() => {
-    if (radiusMode === 'auto') {
-      setRadius(calculateAutoRadius(mass));
+    if (controlMode === 'factor' && lastChanged === 'factor') {
+      const result = findMassRadiusForDilationFactor(dilationFactor);
+      setMassValue(massUnit === 'earth' ? result.mass / EARTH_MASS : result.mass / SOLAR_MASS);
+      setRadius(result.radius);
     }
-  }, [mass, radiusMode]);
+  }, [dilationFactor, controlMode, lastChanged, massUnit]);
+
+  useEffect(() => {
+    if (controlMode === 'manual' || lastChanged === 'params') {
+      const currentFactor = calculateTimeDilationFactor(mass, radius);
+      if (isFinite(currentFactor) && Math.abs(currentFactor - dilationFactor) > 0.01) {
+        setDilationFactor(currentFactor);
+      }
+    }
+  }, [mass, radius, controlMode, lastChanged, dilationFactor]);
 
   const schwarzschildRadius = calculateSchwarzschildRadius(mass);
   const density = calculateDensity(mass, radius);
@@ -77,8 +92,46 @@ export const GravitationalTimeDilationExperiment: React.FC = () => {
           Configuration de l'Astre
         </h2>
 
-        <div className="grid grid-cols-2 gap-3 mb-6">
-          <div>
+        <div className="mb-6">
+          <label className="block text-xs font-semibold text-gray-600 mb-2">Mode de Contrôle</label>
+          <div className="flex gap-2">
+            <button
+              onClick={() => {
+                setControlMode('factor');
+                setLastChanged('factor');
+              }}
+              className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                controlMode === 'factor'
+                  ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-md'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              }`}
+            >
+              Multiplicateur Temporel
+            </button>
+            <button
+              onClick={() => {
+                setControlMode('manual');
+                setLastChanged('params');
+              }}
+              className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                controlMode === 'manual'
+                  ? 'bg-gradient-to-r from-violet-500 to-purple-500 text-white shadow-md'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              }`}
+            >
+              Manuel (Masse & Rayon)
+            </button>
+          </div>
+          <p className="text-xs text-gray-500 mt-2">
+            {controlMode === 'factor'
+              ? 'Contrôlez le facteur de dilatation temporelle, la masse et le rayon s\'ajustent automatiquement'
+              : 'Contrôlez la masse et le rayon manuellement, le facteur de dilatation se met à jour automatiquement'
+            }
+          </p>
+        </div>
+
+        {controlMode === 'manual' && (
+          <div className="mb-6">
             <label className="block text-xs font-semibold text-gray-600 mb-2">Unité de Masse</label>
             <div className="flex gap-2">
               <button
@@ -103,82 +156,101 @@ export const GravitationalTimeDilationExperiment: React.FC = () => {
               </button>
             </div>
           </div>
-
-          <div>
-            <label className="block text-xs font-semibold text-gray-600 mb-2">
-              Mode Rayon
-              <span className="ml-2 text-xs font-normal text-gray-500">(Auto: réaliste | Manuel: libre)</span>
-            </label>
-            <div className="flex gap-2">
-              <button
-                onClick={() => setRadiusMode('auto')}
-                className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                  radiusMode === 'auto'
-                    ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-md'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                Automatique
-              </button>
-              <button
-                onClick={() => setRadiusMode('manual')}
-                className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                  radiusMode === 'manual'
-                    ? 'bg-gradient-to-r from-violet-500 to-purple-500 text-white shadow-md'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                Manuel
-              </button>
-            </div>
-          </div>
-        </div>
+        )}
 
         <div className="space-y-6">
-          <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
-              Masse de l'astre ({massUnit === 'earth' ? 'masses terrestres' : 'masses solaires'})
-            </label>
-            <Slider
-              value={massValue}
-              min={getMassSliderConfig().min}
-              max={getMassSliderConfig().max}
-              step={getMassSliderConfig().step}
-              onChange={setMassValue}
-              className="w-full h-3"
-            />
-            <div className="text-sm text-gray-600 mt-2 font-medium bg-white/60 p-2 rounded-md border border-gray-200/50">
-              {massValue.toFixed(2)} {massUnit === 'earth' ? 'M⊕' : 'M☉'} = {formatMass(mass)}
-            </div>
-          </div>
-
-          {radiusMode === 'manual' && (
+          {controlMode === 'factor' && (
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Rayon de l'astre
+                Multiplicateur du temps (Observateur lointain / Observateur au centre)
               </label>
+              <p className="text-xs text-gray-500 italic mb-2">
+                Modifier le multiplicateur ajustera automatiquement la masse et le rayon de l'astre
+              </p>
               <Slider
-                value={radius}
-                min={getRadiusSliderConfig().min}
-                max={getRadiusSliderConfig().max}
-                step={getRadiusSliderConfig().step}
-                onChange={setRadius}
+                value={dilationFactor}
+                min={1}
+                max={100}
+                step={0.1}
+                onChange={(value) => {
+                  setDilationFactor(value);
+                  setLastChanged('factor');
+                }}
                 className="w-full h-3"
               />
               <div className="text-sm text-gray-600 mt-2 font-medium bg-white/60 p-2 rounded-md border border-gray-200/50">
-                {formatRadius(radius)}
+                Facteur: {dilationFactor.toFixed(2)}×
+                <br />
+                <span className="text-gray-500 text-xs">
+                  Le temps s'écoule {dilationFactor.toFixed(2)} fois plus vite à l'infini qu'au centre de l'astre
+                </span>
               </div>
             </div>
           )}
 
-          {radiusMode === 'auto' && (
+          {controlMode === 'factor' && (
             <div className="bg-green-50 border border-green-200 p-3 rounded-lg">
-              <div className="text-xs font-semibold text-green-700 mb-1">Rayon Automatique</div>
-              <div className="text-sm font-bold text-green-800">{formatRadius(radius)}</div>
-              <p className="text-xs text-green-600 mt-1">
-                Calculé automatiquement selon les relations masse-rayon physiques
+              <div className="text-xs font-semibold text-green-700 mb-2">Paramètres Calculés Automatiquement</div>
+              <div className="space-y-1">
+                <div className="text-sm font-bold text-green-800">Masse: {formatMass(mass)}</div>
+                <div className="text-sm font-bold text-green-800">Rayon: {formatRadius(radius)}</div>
+              </div>
+              <p className="text-xs text-green-600 mt-2">
+                Ces valeurs sont calculées pour obtenir le facteur de dilatation temporelle souhaité
               </p>
             </div>
+          )}
+
+          {controlMode === 'manual' && (
+            <>
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  Masse de l'astre ({massUnit === 'earth' ? 'masses terrestres' : 'masses solaires'})
+                </label>
+                <Slider
+                  value={massValue}
+                  min={getMassSliderConfig().min}
+                  max={getMassSliderConfig().max}
+                  step={getMassSliderConfig().step}
+                  onChange={(value) => {
+                    setMassValue(value);
+                    setLastChanged('params');
+                  }}
+                  className="w-full h-3"
+                />
+                <div className="text-sm text-gray-600 mt-2 font-medium bg-white/60 p-2 rounded-md border border-gray-200/50">
+                  {massValue.toFixed(2)} {massUnit === 'earth' ? 'M⊕' : 'M☉'} = {formatMass(mass)}
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  Rayon de l'astre
+                </label>
+                <Slider
+                  value={radius}
+                  min={getRadiusSliderConfig().min}
+                  max={getRadiusSliderConfig().max}
+                  step={getRadiusSliderConfig().step}
+                  onChange={(value) => {
+                    setRadius(value);
+                    setLastChanged('params');
+                  }}
+                  className="w-full h-3"
+                />
+                <div className="text-sm text-gray-600 mt-2 font-medium bg-white/60 p-2 rounded-md border border-gray-200/50">
+                  {formatRadius(radius)}
+                </div>
+              </div>
+
+              <div className="bg-blue-50 border border-blue-200 p-3 rounded-lg">
+                <div className="text-xs font-semibold text-blue-700 mb-1">Multiplicateur Temporel Résultant</div>
+                <div className="text-sm font-bold text-blue-800">{dilationFactor.toFixed(2)}×</div>
+                <p className="text-xs text-blue-600 mt-1">
+                  Le temps s'écoule {dilationFactor.toFixed(2)} fois plus vite à l'infini qu'au centre pour cette configuration
+                </p>
+              </div>
+            </>
           )}
 
           <div>
