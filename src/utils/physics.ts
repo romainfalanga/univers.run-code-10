@@ -381,6 +381,38 @@ export const calculateTimeDilationFactor = (massKg: number, radiusKm: number): n
   return 1 / dilationAtCenter;
 };
 
+export const findMassForDilationFactorAndRadius = (targetFactor: number, radiusKm: number): number => {
+  if (targetFactor <= 1) {
+    return EARTH_MASS;
+  }
+
+  const targetDilation = 1 / targetFactor;
+
+  const term2 = 0.5;
+  const term1 = targetDilation + term2;
+  const sqrtFactor = term1 / 1.5;
+
+  if (sqrtFactor <= 0 || sqrtFactor >= 1) {
+    return EARTH_MASS;
+  }
+
+  const rsOverR = 1 - (sqrtFactor * sqrtFactor);
+  const rs = rsOverR * radiusKm;
+
+  if (rs <= 0) {
+    return EARTH_MASS;
+  }
+
+  const c = SPEED_OF_LIGHT * 1000;
+  const mass = (rs * 1000 * c * c) / (2 * GRAVITATIONAL_CONSTANT);
+
+  if (!isFinite(mass) || mass <= 0) {
+    return EARTH_MASS;
+  }
+
+  return mass;
+};
+
 export const findMassRadiusForDilationFactor = (targetFactor: number): { mass: number; radius: number } => {
   if (targetFactor <= 1) {
     return { mass: EARTH_MASS, radius: EARTH_RADIUS };
