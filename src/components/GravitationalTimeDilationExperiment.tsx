@@ -19,7 +19,6 @@ import {
   getCategoryDescription,
 } from '../utils/physics';
 import { TimeDilationChart } from './TimeDilationChart';
-import { CelestialBodyVisualization } from './CelestialBodyVisualization';
 
 type MassUnit = 'earth' | 'solar';
 type RadiusMode = 'auto' | 'manual';
@@ -384,15 +383,7 @@ export const GravitationalTimeDilationExperiment: React.FC = () => {
         </div>
       )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <CelestialBodyVisualization
-          radius={radius}
-          schwarzschildRadius={schwarzschildRadius}
-          isBlackHole={isBlackHole}
-        />
-
-        <TimeDilationChart mass={mass} radius={radius} />
-      </div>
+      <TimeDilationChart mass={mass} radius={radius} />
 
       <div className="bg-gradient-to-br from-slate-50 to-gray-50 p-4 sm:p-6 rounded-xl border border-slate-200/50 shadow-lg">
         <h3 className="text-lg font-bold text-slate-800 mb-3">
