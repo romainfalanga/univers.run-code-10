@@ -139,58 +139,6 @@ export const GeneralRelativityPage: React.FC = () => {
 
             <GravitationalTimeDilationExperiment />
           </div>
-
-          <div className="bg-gradient-to-br from-yellow-900/40 to-orange-900/30 backdrop-blur-sm rounded-xl lg:rounded-2xl p-6 sm:p-8 border border-yellow-400/30 shadow-2xl">
-            <h2 className="text-2xl sm:text-3xl font-bold text-yellow-300 mb-4">
-              Applications et Vérifications Expérimentales
-            </h2>
-
-            <div className="space-y-4 text-base sm:text-lg text-gray-200 leading-relaxed">
-              <p>
-                La dilatation temporelle gravitationnelle n'est pas qu'une curiosité théorique.
-                Elle a été vérifiée expérimentalement et a des applications concrètes :
-              </p>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-yellow-900/30 p-4 rounded-lg border border-yellow-400/30">
-                  <h3 className="text-lg font-semibold text-yellow-200 mb-2">GPS et Navigation</h3>
-                  <p className="text-sm text-gray-300">
-                    Les satellites GPS orbitent à environ 20 000 km d'altitude. À cette distance,
-                    le champ gravitationnel est plus faible qu'à la surface. Les horloges des satellites
-                    avancent donc plus vite (environ 45 microsecondes par jour). Sans correction
-                    relativiste, le GPS aurait des erreurs de plusieurs kilomètres.
-                  </p>
-                </div>
-
-                <div className="bg-orange-900/30 p-4 rounded-lg border border-orange-400/30">
-                  <h3 className="text-lg font-semibold text-orange-200 mb-2">Pulsars et Étoiles à Neutrons</h3>
-                  <p className="text-sm text-gray-300">
-                    Les étoiles à neutrons sont si denses que leur rayon est seulement quelques fois
-                    supérieur à leur rayon de Schwarzschild. Les effets de dilatation temporelle y sont
-                    extrêmes : le temps s'écoule significativement plus lentement à leur surface qu'ici.
-                  </p>
-                </div>
-
-                <div className="bg-red-900/30 p-4 rounded-lg border border-red-400/30">
-                  <h3 className="text-lg font-semibold text-red-200 mb-2">Trous Noirs</h3>
-                  <p className="text-sm text-gray-300">
-                    À l'horizon des événements d'un trou noir, le temps semble s'arrêter complètement
-                    du point de vue d'un observateur extérieur. C'est la manifestation ultime de la
-                    dilatation temporelle gravitationnelle.
-                  </p>
-                </div>
-
-                <div className="bg-pink-900/30 p-4 rounded-lg border border-pink-400/30">
-                  <h3 className="text-lg font-semibold text-pink-200 mb-2">Expérience de Pound-Rebka</h3>
-                  <p className="text-sm text-gray-300">
-                    En 1959, cette expérience a mesuré le décalage vers le rouge gravitationnel sur
-                    seulement 22 mètres de hauteur, confirmant la théorie avec une précision de 1%.
-                    C'était la première vérification directe de la dilatation temporelle gravitationnelle.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
