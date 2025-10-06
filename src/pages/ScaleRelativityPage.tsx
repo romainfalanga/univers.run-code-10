@@ -31,9 +31,6 @@ export const ScaleRelativityPage: React.FC = () => {
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-emerald-300 via-teal-300 via-cyan-300 to-green-300 bg-clip-text text-transparent bg-[length:400%_400%] animate-gradient-x drop-shadow-[0_0_30px_rgba(16,185,129,0.8)] mb-3 sm:mb-4 px-2">
             Relativité des Échelles
           </h1>
-          <p className="text-base sm:text-lg lg:text-xl text-emerald-200/90 max-w-4xl mx-auto px-4 leading-relaxed">
-            Découvrez mon modèle d'univers en 5 dimensions : espace, temps et échelle
-          </p>
         </header>
 
         {/* Contenu principal */}
