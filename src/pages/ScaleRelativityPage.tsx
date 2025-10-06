@@ -296,36 +296,6 @@ export const ScaleRelativityPage: React.FC = () => {
                     Les Environnements
                   </Link>
                 </div>
-
-                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-orange-400/30 hover:border-orange-400/60 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/20">
-                  <h3 className="text-lg sm:text-xl font-semibold text-orange-300 mb-3">L'Effet du Rayonnement</h3>
-                  <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
-                    Explorez comment le rayonnement cosmique ambiant agit comme une pression diffuse qui incline tous les tapis roulants.
-                  </p>
-                  <Link
-                    to="/relativite-generale-echelles/effet-rayonnement"
-                    className="inline-flex items-center justify-center w-full px-4 py-2 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-500 hover:to-red-500 text-white text-sm font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md"
-                  >
-                    L'Effet du Rayonnement
-                  </Link>
-                </div>
-
-                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-indigo-400/30 hover:border-indigo-400/60 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/20">
-                  <h3 className="text-lg sm:text-xl font-semibold text-indigo-300 mb-3">Le Coefficient Multiplicateur</h3>
-                  <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
-                    Analysez la formule unifiée reliant vitesse et courbure gravitationnelle dans l'élégance du modèle.
-                  </p>
-                  <Link
-                    to="/relativite-generale-echelles/coefficient-multiplicateur"
-                    className="inline-flex items-center justify-center w-full px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white text-sm font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md"
-                  >
-                    Le Coefficient Multiplicateur
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-
           {/* Section Les Tapis Roulants */}
           <div className="bg-gradient-to-br from-purple-900/40 to-pink-900/30 backdrop-blur-sm rounded-xl lg:rounded-2xl p-6 sm:p-8 border border-purple-400/30 shadow-2xl">
             <div className="mb-4 sm:mb-6">
