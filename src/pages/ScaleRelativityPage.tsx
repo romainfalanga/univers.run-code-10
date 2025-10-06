@@ -296,6 +296,10 @@ export const ScaleRelativityPage: React.FC = () => {
                     Les Environnements
                   </Link>
                 </div>
+              </div>
+            </div>
+          </div>
+
           {/* Section Les Tapis Roulants */}
           <div className="bg-gradient-to-br from-purple-900/40 to-pink-900/30 backdrop-blur-sm rounded-xl lg:rounded-2xl p-6 sm:p-8 border border-purple-400/30 shadow-2xl">
             <div className="mb-4 sm:mb-6">
