@@ -514,7 +514,7 @@ export const GravitationalTimeDilationExperiment: React.FC = () => {
           <div className="bg-amber-50 border-l-4 border-amber-400 p-3 rounded mt-3">
             <p className="text-xs text-amber-800">
               <strong>Limites de validité:</strong> Ces formules ne sont valides que lorsque R &gt; Rs.
-              Si R ≤ Rs, un trou noir se forme et ces équations ne s'appliquent plus à l\'intérieur de l'horizon
+              Si R ≤ Rs, un trou noir se forme et ces équations ne s'appliquent plus à l\'intérieur de l\'horizon
               des événements. Dans ce cas extrême, les rôles du temps et de l'espace sont inversés et les
               prédictions de la relativité générale deviennent contre-intuitives.
             </p>
