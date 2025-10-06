@@ -466,3 +466,64 @@ export const findMassRadiusForDilationFactor = (targetFactor: number): { mass: n
 
   return { mass: bestMass, radius: bestRadius };
 };
+
+export const calculateCompacityFromGamma = (gamma: number): number => {
+  if (gamma <= 1) return 0;
+
+  const targetDilation = 1 / gamma;
+  const term2 = 0.5;
+  const term1 = targetDilation + term2;
+  const sqrtFactor = term1 / 1.5;
+
+  if (sqrtFactor <= 0 || sqrtFactor >= 1) return 0;
+
+  const compacity = 1 - (sqrtFactor * sqrtFactor);
+  return Math.max(0, Math.min(0.99, compacity));
+};
+
+export const calculateGammaFromCompacity = (compacity: number): number => {
+  if (compacity <= 0) return 1;
+  if (compacity >= 1) return Infinity;
+
+  const factor = 1 - compacity;
+  const dilationAtCenter = (3 / 2) * Math.sqrt(factor) - 0.5;
+
+  if (dilationAtCenter <= 0) return Infinity;
+
+  return 1 / dilationAtCenter;
+};
+
+export const calculateMassRadiusFromGammaCompacity = (
+  gamma: number,
+  compacity: number
+): { mass: number; radius: number } => {
+  if (gamma <= 1 || compacity <= 0) {
+    return { mass: EARTH_MASS, radius: EARTH_RADIUS };
+  }
+
+  if (compacity >= 1) {
+    return { mass: SOLAR_MASS, radius: calculateSchwarzschildRadius(SOLAR_MASS) };
+  }
+
+  const baseRadius = EARTH_RADIUS * Math.pow(gamma, 2);
+  const rs = compacity * baseRadius;
+
+  const c = SPEED_OF_LIGHT * 1000;
+  const mass = (rs * 1000 * c * c) / (2 * GRAVITATIONAL_CONSTANT);
+  const radius = baseRadius;
+
+  if (!isFinite(mass) || !isFinite(radius) || mass <= 0 || radius <= 0) {
+    return { mass: EARTH_MASS, radius: EARTH_RADIUS };
+  }
+
+  return { mass, radius };
+};
+
+export const calculateCompacityFromMassRadius = (massKg: number, radiusKm: number): number => {
+  const rs = calculateSchwarzschildRadius(massKg);
+  return rs / radiusKm;
+};
+
+export const formatCompacity = (compacity: number): string => {
+  return `${(compacity * 100).toFixed(2)}%`;
+};

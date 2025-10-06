@@ -33,7 +33,7 @@ export const GeneralRelativityPage: React.FC = () => {
             </h1>
           </div>
           <p className="text-base sm:text-lg lg:text-xl text-purple-200 max-w-4xl mx-auto px-4 leading-relaxed">
-            Explorez comment la masse-énergie courbe l'espace-temps et ralentit les horloges
+            Explorez la dilatation du temps gravitationnelle avec seulement deux paramètres: γ et Rs/R
           </p>
         </header>
 
@@ -75,52 +75,45 @@ export const GeneralRelativityPage: React.FC = () => {
 
           <div className="bg-gradient-to-br from-indigo-900/40 to-purple-900/30 backdrop-blur-sm rounded-xl lg:rounded-2xl p-6 sm:p-8 border border-indigo-400/30 shadow-2xl">
             <h2 className="text-2xl sm:text-3xl font-bold text-indigo-300 mb-4">
-              La Métrique de Schwarzschild
+              Symétrie avec la Relativité Restreinte
             </h2>
 
             <div className="space-y-4 text-base sm:text-lg text-gray-200 leading-relaxed">
               <p>
-                Pour un objet sphérique non-rotatif, la solution des équations d'Einstein est donnée
-                par la <strong className="text-white">métrique de Schwarzschild</strong>. Cette solution
-                décrit précisément comment l'espace-temps est déformé autour d\'un astre.
+                La Relativité Générale et la Relativité Restreinte partagent une <strong className="text-white">structure mathématique identique</strong> pour la dilatation du temps!
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-indigo-900/30 p-4 rounded-lg border border-indigo-400/30">
-                  <h3 className="text-lg font-semibold text-indigo-200 mb-2">Solution Extérieure</h3>
-                  <p className="text-sm text-gray-300">
-                    Pour un observateur à l'extérieur de l'astre (r &gt; R), le facteur de dilatation
-                    temporelle est :
-                  </p>
-                  <div className="text-center font-mono text-indigo-200 my-2 text-sm">
-                    dτ/dt = √(1 - 2GM/rc²)
+                <div className="bg-cyan-900/30 p-4 rounded-lg border border-cyan-400/30">
+                  <h3 className="text-lg font-semibold text-cyan-200 mb-2">Relativité Restreinte</h3>
+                  <div className="text-center font-mono text-cyan-200 my-3 text-lg">
+                    γ = 1/√(1 - v²/c²)
                   </div>
+                  <p className="text-sm text-gray-300 mb-2">
+                    <strong className="text-cyan-300">v/c</strong> est la vitesse normalisée
+                  </p>
                   <p className="text-xs text-gray-400">
-                    où r est la distance au centre, M la masse, G la constante gravitationnelle,
-                    et c la vitesse de la lumière.
+                    La vitesse dans l'espace détermine la dilatation du temps
                   </p>
                 </div>
 
                 <div className="bg-purple-900/30 p-4 rounded-lg border border-purple-400/30">
-                  <h3 className="text-lg font-semibold text-purple-200 mb-2">Solution Intérieure</h3>
-                  <p className="text-sm text-gray-300">
-                    Pour un observateur au centre d'une sphère de densité uniforme :
-                  </p>
-                  <div className="text-center font-mono text-purple-200 my-2 text-sm">
-                    dτ/dt = (3/2)√(1 - 2GM/R) - 1/2
+                  <h3 className="text-lg font-semibold text-purple-200 mb-2">Relativité Générale</h3>
+                  <div className="text-center font-mono text-purple-200 my-3 text-lg">
+                    γ = 1/√(1 - Rs/R)
                   </div>
+                  <p className="text-sm text-gray-300 mb-2">
+                    <strong className="text-purple-300">Rs/R</strong> est la compacité gravitationnelle
+                  </p>
                   <p className="text-xs text-gray-400">
-                    où R est le rayon de l'astre. Le temps s'écoule encore plus lentement au centre
-                    qu'à la surface.
+                    La compacité (courbure) détermine la dilatation du temps
                   </p>
                 </div>
               </div>
 
-              <div className="bg-cyan-900/30 p-4 rounded-lg border-l-4 border-cyan-400">
-                <p className="text-cyan-100">
-                  Le <strong className="text-white">rayon de Schwarzschild</strong> (R<sub>s</sub> = 2GM/c²)
-                  représente la taille critique : si un astre est comprimé en dessous de ce rayon,
-                  il devient un <strong>trou noir</strong> et un horizon des événements se forme.
+              <div className="bg-gradient-to-r from-cyan-900/30 to-purple-900/30 p-4 rounded-lg border-l-4 border-gradient-to-r from-cyan-400 to-purple-400">
+                <p className="text-white text-center font-semibold">
+                  Deux curseurs suffisent pour explorer chaque théorie: <span className="text-cyan-300">γ</span> (accélération du temps) et soit <span className="text-cyan-300">v/c</span> soit <span className="text-purple-300">Rs/R</span> selon la théorie!
                 </p>
               </div>
             </div>
@@ -132,9 +125,9 @@ export const GeneralRelativityPage: React.FC = () => {
             </h2>
 
             <p className="text-base sm:text-lg text-gray-200 leading-relaxed mb-6">
-              Créez un astre en définissant sa masse et son rayon, puis observez comment le temps
-              s'écoule différemment pour trois observateurs : un observateur lointain (référence),
-              un observateur à la surface, et un observateur au centre de l'astre.
+              Ajustez l'accélération du temps (γ) et la compacité gravitationnelle (Rs/R) pour observer
+              comment le temps s'écoule différemment selon la position dans le champ gravitationnel.
+              La masse et le rayon de l'astre correspondant sont calculés automatiquement.
             </p>
 
             <GravitationalTimeDilationExperiment />
