@@ -16,8 +16,8 @@ import { GeneralScaleRelativityPage } from './pages/GeneralScaleRelativityPage';
 import { ThoughtExperimentsScalePage } from './pages/ThoughtExperimentsScalePage';
 import { BlackHolesScalePage } from './pages/BlackHolesScalePage';
 import { BlackHolesHubPage, CreationPage, PassagePage, WhyNoReturnPage, QuantumUniverseSizePage, InternalUniversesPage, HarmonyDescentPage, SingularityPage, EventHorizonPage, InvisibilityPage, BehindHorizonPage } from './pages/blackholes';
-import { RestrictedScaleRelativityHubPage, UniversalBudgetPage, ImmobileStatePage, ExtremSpeedPage, PivotTemporelPage, TapisRoulantRestrictedPage } from './pages/restricted';
-import { GeneralScaleRelativityHubPage, UniversalEscalatorPage, EnvironmentsPage } from './pages/general';
+import { UniversalBudgetPage, ImmobileStatePage, ExtremSpeedPage, PivotTemporelPage, TapisRoulantRestrictedPage } from './pages/restricted';
+import { UniversalEscalatorPage, EnvironmentsPage, RadiationEffectPage, MultiplierCoefficientPage } from './pages/general';
 import { DimensionsMuseumPage, MuseumEntrancePage, FirstRoomPage } from './pages/experiments';
 import { ExpansionHubPage, IllusionExpansionPage, HubbleLawPage, DarkEnergyPage } from './pages/expansion';
 import { SuperpositionTissusPage, TapisRoulantFabricPage } from './pages/fabric';
@@ -40,12 +40,10 @@ const AppContent: React.FC = () => {
         <Route path="/scale-lab" element={<ScaleLabPage />} />
         <Route path="/relativite-echelles" element={<ScaleRelativityPage />} />
 
-        <Route path="/tissu-espace-temps-echelle" element={<SpaceTimeScaleFabricPage />} />
         <Route path="/tissu-espace-temps-echelle/superposition" element={<SuperpositionTissusPage />} />
         <Route path="/tissu-espace-temps-echelle/tapis-roulant" element={<TapisRoulantFabricPage />} />
 
         <Route path="/relativite-restreinte-echelles-old" element={<RestrictedScaleRelativityPage />} />
-        <Route path="/relativite-restreinte-echelles" element={<RestrictedScaleRelativityHubPage />} />
         <Route path="/relativite-restreinte-echelles/budget-universel" element={<UniversalBudgetPage />} />
         <Route path="/relativite-restreinte-echelles/pivot-temporel" element={<PivotTemporelPage />} />
         <Route path="/relativite-restreinte-echelles/tapis-roulant" element={<TapisRoulantRestrictedPage />} />
@@ -53,9 +51,10 @@ const AppContent: React.FC = () => {
         <Route path="/relativite-restreinte-echelles/vitesse-extreme" element={<ExtremSpeedPage />} />
 
         <Route path="/relativite-generale-echelles-old" element={<GeneralScaleRelativityPage />} />
-        <Route path="/relativite-generale-echelles" element={<GeneralScaleRelativityHubPage />} />
         <Route path="/relativite-generale-echelles/escalator-universel" element={<UniversalEscalatorPage />} />
         <Route path="/relativite-generale-echelles/environnements" element={<EnvironmentsPage />} />
+        <Route path="/relativite-generale-echelles/effet-rayonnement" element={<RadiationEffectPage />} />
+        <Route path="/relativite-generale-echelles/coefficient-multiplicateur" element={<MultiplierCoefficientPage />} />
 
         <Route path="/relativite-echelles-final" element={<TreadmillsHubPage />} />
 

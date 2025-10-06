@@ -70,33 +70,56 @@ export const ScaleRelativityPage: React.FC = () => {
                 Le Tissu d'Espace-Temps-d'Échelle
               </h2>
             </div>
-            
+
             <div className="space-y-4 sm:space-y-6">
               <div className="bg-emerald-900/20 p-4 sm:p-6 rounded-lg border-l-4 border-emerald-400">
                 <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
                   L'espace-temps et l'échelle-temps ne sont pas deux mondes séparés : ils sont superposés, liés par le même pivot : <strong className="text-white">le temps</strong>.
                 </p>
               </div>
-              
+
               <div className="bg-teal-900/20 p-4 sm:p-6 rounded-lg border-l-4 border-teal-400">
                 <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
                   Ensemble, ils forment un seul tissu : <strong className="text-teal-300">le tissu d'espace-temps-d'échelle</strong>. Ce tissu est entraîné par un moteur universel : la vitesse de la lumière. Tout descend toujours à ce rythme, sans exception.
                 </p>
               </div>
-              
+
               <div className="bg-gradient-to-r from-cyan-900/40 to-emerald-900/30 p-4 sm:p-6 rounded-lg border-l-4 border-cyan-400">
                 <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
                   <strong className="text-cyan-300">La seule différence, c'est l'inclinaison du tapis roulant :</strong> plus ou moins raide selon la vitesse, la masse et l'énergie.
                 </p>
               </div>
-              
-              <div className="flex justify-center mt-6">
-                <Link
-                  to="/tissu-espace-temps-echelle"
-                  className="group flex items-center justify-center px-6 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 hover:shadow-emerald-500/25 text-white rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
-                >
-                  Le Tissu d'Espace-Temps-d'Échelle
-                </Link>
+
+              <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
+                Einstein nous a révélé l'espace-temps, cette toile où l'espace et le temps s'entremêlent. Mais il manquait une dimension : l'échelle. Dans mon modèle, l'échelle et le temps forment un second tissu, l'échelle-temps, qui se superpose au premier.
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mt-6">
+                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-emerald-400/30 hover:border-emerald-400/60 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/20">
+                  <h3 className="text-lg sm:text-xl font-semibold text-emerald-300 mb-3">Superposition des Tissus</h3>
+                  <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+                    Découvrez comment les deux tissus (espace-temps et échelle-temps) sont reliés par le pivot temporel pour former une structure unifiée à cinq dimensions.
+                  </p>
+                  <Link
+                    to="/tissu-espace-temps-echelle/superposition"
+                    className="inline-flex items-center justify-center w-full px-4 py-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-sm font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md"
+                  >
+                    Superposition des Tissus
+                  </Link>
+                </div>
+
+                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-cyan-400/30 hover:border-cyan-400/60 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20">
+                  <h3 className="text-lg sm:text-xl font-semibold text-cyan-300 mb-3">Les Tapis Roulants</h3>
+                  <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+                    Explorez le mécanisme universel où tout descend à la vitesse de la lumière avec des inclinaisons variables selon la vitesse et la masse.
+                  </p>
+                  <Link
+                    to="/tissu-espace-temps-echelle/tapis-roulant"
+                    className="inline-flex items-center justify-center w-full px-4 py-2 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white text-sm font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md"
+                  >
+                    Les Tapis Roulants
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -108,7 +131,7 @@ export const ScaleRelativityPage: React.FC = () => {
                 Relativité Restreinte des Échelles
               </h2>
             </div>
-            
+
             <div className="space-y-4 sm:space-y-6">
               <div className="bg-cyan-900/20 p-4 sm:p-6 rounded-lg border-l-4 border-cyan-400">
                 <h3 className="text-lg sm:text-xl font-semibold text-cyan-200 mb-3">Le Budget Universel</h3>
@@ -116,7 +139,7 @@ export const ScaleRelativityPage: React.FC = () => {
                   Einstein avait montré que notre mouvement se partage entre l'espace et le temps. Dans mon modèle, ce partage s'étend : il existe un <strong className="text-white">budget universel</strong>, découpé en deux comptes reliés par le même pivot : le curseur temps.
                 </p>
               </div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="bg-blue-900/20 p-4 rounded-lg border border-blue-400/30">
                   <h4 className="font-semibold text-blue-300 mb-2">Budget Espace-Temps (ET)</h4>
@@ -127,20 +150,82 @@ export const ScaleRelativityPage: React.FC = () => {
                   <p className="text-xs sm:text-sm text-gray-300">Partage entre écoulement temporel et descente d'échelle</p>
                 </div>
               </div>
-              
+
               <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/20 p-4 sm:p-6 rounded-lg border-l-4 border-purple-400">
                 <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
                   <strong className="text-purple-300">Ces deux budgets sont connectés par le curseur temps :</strong> tout ce qui est soustrait au temps dans ET réapparaît automatiquement dans TE. Modifier l'un, c'est forcer l'autre à s'ajuster.
                 </p>
               </div>
-              
-              <div className="flex justify-center mt-6">
-                <Link
-                  to="/relativite-restreinte-echelles"
-                  className="group flex items-center justify-center px-6 py-3 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 hover:shadow-cyan-500/25 text-white rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
-                >
-                  Relativité Restreinte des Échelles
-                </Link>
+
+              <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
+                Nous n'avons pas la main sur ce budget total. La seule liberté qui nous est laissée est spatiale : en changeant notre vitesse, nous déplaçons le curseur temps, et avec lui, nous modifions automatiquement le partage entre le temps et l'échelle.
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-cyan-400/30 hover:border-cyan-400/60 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20">
+                  <h3 className="text-base sm:text-lg font-semibold text-cyan-300 mb-2">Le Budget Universel</h3>
+                  <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+                    Comprenez comment les budgets ET et TE partagent le mouvement universel à travers les dimensions.
+                  </p>
+                  <Link
+                    to="/relativite-restreinte-echelles/budget-universel"
+                    className="inline-flex items-center justify-center w-full px-3 py-2 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white text-xs sm:text-sm font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md"
+                  >
+                    Le Budget Universel
+                  </Link>
+                </div>
+
+                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-indigo-400/30 hover:border-indigo-400/60 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/20">
+                  <h3 className="text-base sm:text-lg font-semibold text-indigo-300 mb-2">Le Pivot Temporel</h3>
+                  <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+                    Découvrez le rôle central du temps comme lien connectant les deux budgets de manière indissociable.
+                  </p>
+                  <Link
+                    to="/relativite-restreinte-echelles/pivot-temporel"
+                    className="inline-flex items-center justify-center w-full px-3 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white text-xs sm:text-sm font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md"
+                  >
+                    Le Pivot Temporel
+                  </Link>
+                </div>
+
+                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-blue-400/30 hover:border-blue-400/60 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20">
+                  <h3 className="text-base sm:text-lg font-semibold text-blue-300 mb-2">Les Tapis Roulants</h3>
+                  <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+                    Explorez le mécanisme fondamental du mouvement à travers les cinq dimensions de l'univers.
+                  </p>
+                  <Link
+                    to="/relativite-restreinte-echelles/tapis-roulant"
+                    className="inline-flex items-center justify-center w-full px-3 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white text-xs sm:text-sm font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md"
+                  >
+                    Les Tapis Roulants
+                  </Link>
+                </div>
+
+                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-green-400/30 hover:border-green-400/60 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20">
+                  <h3 className="text-base sm:text-lg font-semibold text-green-300 mb-2">Situation Immobile</h3>
+                  <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+                    Analysez l'allocation maximale du budget au temps quand la vitesse spatiale est quasi nulle.
+                  </p>
+                  <Link
+                    to="/relativite-restreinte-echelles/immobile"
+                    className="inline-flex items-center justify-center w-full px-3 py-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 text-white text-xs sm:text-sm font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md"
+                  >
+                    Situation Immobile
+                  </Link>
+                </div>
+
+                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-red-400/30 hover:border-red-400/60 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/20">
+                  <h3 className="text-base sm:text-lg font-semibold text-red-300 mb-2">Vitesse Extrême</h3>
+                  <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+                    Observez la descente maximale vers l'infiniment petit quand la vitesse frôle celle de la lumière.
+                  </p>
+                  <Link
+                    to="/relativite-restreinte-echelles/vitesse-extreme"
+                    className="inline-flex items-center justify-center w-full px-3 py-2 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-500 hover:to-orange-500 text-white text-xs sm:text-sm font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md"
+                  >
+                    Vitesse Extrême
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -152,20 +237,20 @@ export const ScaleRelativityPage: React.FC = () => {
                 Relativité Générale des Échelles
               </h2>
             </div>
-            
+
             <div className="space-y-4 sm:space-y-6">
               <div className="bg-purple-900/20 p-4 sm:p-6 rounded-lg border-l-4 border-purple-400">
                 <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
                   Imagine que tu es sur ton tapis roulant. Il descend toujours à la même cadence : <strong className="text-white">la vitesse de la lumière</strong>. Rien n'accélère ni ne ralentit le moteur, il bat comme un métronome absolu.
                 </p>
               </div>
-              
+
               <div className="bg-indigo-900/20 p-4 sm:p-6 rounded-lg border-l-4 border-indigo-400">
                 <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
                   Mais voilà : <strong className="text-indigo-300">la masse et l'énergie qui t'entourent viennent poser leur poids sur ce tapis roulant</strong>. Une planète, une étoile, un nuage de gaz brûlant : tout cela pèse sur le tissu de l'espace-temps et fait basculer le tapis roulant vers l'avant.
                 </p>
               </div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="bg-green-900/20 p-4 rounded-lg border border-green-400/30">
                   <h4 className="font-semibold text-green-300 mb-2">Région calme</h4>
@@ -180,14 +265,63 @@ export const ScaleRelativityPage: React.FC = () => {
                   <p className="text-xs sm:text-sm text-gray-300">Tapis roulant avec pente verticale, chute libre vers l'échelle</p>
                 </div>
               </div>
-              
-              <div className="flex justify-center mt-6">
-                <Link
-                  to="/relativite-generale-echelles"
-                  className="group flex items-center justify-center px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 hover:shadow-purple-500/25 text-white rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
-                >
-                  Relativité Générale des Échelles
-                </Link>
+
+              <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
+                La masse et l'énergie n'inventent pas un nouveau moteur, elles ne modifient pas la vitesse universelle. Elles ajoutent seulement un coefficient multiplicateur à l'inclinaison du tapis roulant par la déformation du tissu de l'espace-temps.
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mt-6">
+                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-purple-400/30 hover:border-purple-400/60 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
+                  <h3 className="text-lg sm:text-xl font-semibold text-purple-300 mb-3">Les Tapis Roulants</h3>
+                  <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+                    Comprenez comment la masse et l'énergie agissent comme une main qui appuie sur le tapis roulant pour modifier son inclinaison.
+                  </p>
+                  <Link
+                    to="/relativite-generale-echelles/escalator-universel"
+                    className="inline-flex items-center justify-center w-full px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-sm font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md"
+                  >
+                    Les Tapis Roulants
+                  </Link>
+                </div>
+
+                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-blue-400/30 hover:border-blue-400/60 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20">
+                  <h3 className="text-lg sm:text-xl font-semibold text-blue-300 mb-3">Les Environnements</h3>
+                  <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+                    Découvrez les variations d'inclinaison selon l'environnement : du vide spatial aux régions denses près des trous noirs.
+                  </p>
+                  <Link
+                    to="/relativite-generale-echelles/environnements"
+                    className="inline-flex items-center justify-center w-full px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white text-sm font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md"
+                  >
+                    Les Environnements
+                  </Link>
+                </div>
+
+                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-orange-400/30 hover:border-orange-400/60 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/20">
+                  <h3 className="text-lg sm:text-xl font-semibold text-orange-300 mb-3">L'Effet du Rayonnement</h3>
+                  <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+                    Explorez comment le rayonnement cosmique ambiant agit comme une pression diffuse qui incline tous les tapis roulants.
+                  </p>
+                  <Link
+                    to="/relativite-generale-echelles/effet-rayonnement"
+                    className="inline-flex items-center justify-center w-full px-4 py-2 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-500 hover:to-red-500 text-white text-sm font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md"
+                  >
+                    L'Effet du Rayonnement
+                  </Link>
+                </div>
+
+                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-indigo-400/30 hover:border-indigo-400/60 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/20">
+                  <h3 className="text-lg sm:text-xl font-semibold text-indigo-300 mb-3">Le Coefficient Multiplicateur</h3>
+                  <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+                    Analysez la formule unifiée reliant vitesse et courbure gravitationnelle dans l'élégance du modèle.
+                  </p>
+                  <Link
+                    to="/relativite-generale-echelles/coefficient-multiplicateur"
+                    className="inline-flex items-center justify-center w-full px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white text-sm font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md"
+                  >
+                    Le Coefficient Multiplicateur
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
