@@ -184,16 +184,195 @@ export const formatDensity = (densityKgPerM3: number): string => {
   }
 };
 
-export interface CelestialPreset {
+export interface RealCelestialBody {
   name: string;
   mass: number;
   radius: number;
+  density: number;
+  category: 'planète' | 'étoile' | 'géante' | 'supergéante' | 'naine blanche' | 'étoile à neutrons' | 'trou noir';
 }
 
-export const CELESTIAL_PRESETS: CelestialPreset[] = [
-  { name: 'Terre', mass: EARTH_MASS, radius: EARTH_RADIUS },
-  { name: 'Jupiter', mass: 1.898e27, radius: 69911 },
-  { name: 'Soleil', mass: SOLAR_MASS, radius: SOLAR_RADIUS },
-  { name: 'Naine Blanche', mass: SOLAR_MASS * 0.6, radius: 5000 },
-  { name: 'Étoile à Neutrons', mass: SOLAR_MASS * 1.4, radius: 10 },
+export const REAL_CELESTIAL_BODIES: RealCelestialBody[] = [
+  { name: 'Mercure', mass: 3.301e23, radius: 2439.7, density: 5427, category: 'planète' },
+  { name: 'Vénus', mass: 4.867e24, radius: 6051.8, density: 5243, category: 'planète' },
+  { name: 'Terre', mass: EARTH_MASS, radius: EARTH_RADIUS, density: 5514, category: 'planète' },
+  { name: 'Mars', mass: 6.417e23, radius: 3389.5, density: 3933, category: 'planète' },
+  { name: 'Jupiter', mass: 1.898e27, radius: 69911, density: 1326, category: 'planète' },
+  { name: 'Saturne', mass: 5.683e26, radius: 58232, density: 687, category: 'planète' },
+  { name: 'Uranus', mass: 8.681e25, radius: 25362, density: 1271, category: 'planète' },
+  { name: 'Neptune', mass: 1.024e26, radius: 24622, density: 1638, category: 'planète' },
+
+  { name: 'Proxima Centauri', mass: SOLAR_MASS * 0.122, radius: 107280, density: 56.8e3, category: 'étoile' },
+  { name: 'Barnard\'s Star', mass: SOLAR_MASS * 0.144, radius: 119800, density: 50.3e3, category: 'étoile' },
+  { name: 'Wolf 359', mass: SOLAR_MASS * 0.09, radius: 96600, density: 80.5e3, category: 'étoile' },
+  { name: 'Lalande 21185', mass: SOLAR_MASS * 0.46, radius: 321000, density: 13.5e3, category: 'étoile' },
+  { name: 'Sirius B', mass: SOLAR_MASS * 1.018, radius: 5850, density: 2.67e9, category: 'naine blanche' },
+  { name: 'Procyon B', mass: SOLAR_MASS * 0.602, radius: 8600, density: 3.7e8, category: 'naine blanche' },
+  { name: '40 Eridani B', mass: SOLAR_MASS * 0.573, radius: 10700, density: 1.8e8, category: 'naine blanche' },
+  { name: 'Van Maanen 2', mass: SOLAR_MASS * 0.67, radius: 6700, density: 6.8e8, category: 'naine blanche' },
+
+  { name: 'Alpha Centauri A', mass: SOLAR_MASS * 1.1, radius: 854000, density: 1.51e3, category: 'étoile' },
+  { name: 'Alpha Centauri B', mass: SOLAR_MASS * 0.907, radius: 599000, density: 1.78e3, category: 'étoile' },
+  { name: 'Tau Ceti', mass: SOLAR_MASS * 0.783, radius: 551000, density: 1.71e3, category: 'étoile' },
+  { name: 'Epsilon Eridani', mass: SOLAR_MASS * 0.82, radius: 550000, density: 1.8e3, category: 'étoile' },
+  { name: 'Soleil', mass: SOLAR_MASS, radius: SOLAR_RADIUS, density: 1408, category: 'étoile' },
+  { name: 'Sirius A', mass: SOLAR_MASS * 2.063, radius: 1.191e6, density: 435, category: 'étoile' },
+  { name: 'Vega', mass: SOLAR_MASS * 2.135, radius: 1.602e6, density: 187, category: 'étoile' },
+  { name: 'Altair', mass: SOLAR_MASS * 1.79, radius: 1.63e6, density: 150, category: 'étoile' },
+  { name: 'Fomalhaut', mass: SOLAR_MASS * 1.92, radius: 1.842e6, density: 104, category: 'étoile' },
+  { name: 'Procyon A', mass: SOLAR_MASS * 1.499, radius: 1.569e6, density: 156, category: 'étoile' },
+
+  { name: 'Pollux', mass: SOLAR_MASS * 1.91, radius: 6.092e6, density: 1.27, category: 'géante' },
+  { name: 'Arcturus', mass: SOLAR_MASS * 1.08, radius: 1.808e7, density: 0.0047, category: 'géante' },
+  { name: 'Aldebaran', mass: SOLAR_MASS * 1.16, radius: 3.044e7, density: 0.00045, category: 'géante' },
+  { name: 'Capella A', mass: SOLAR_MASS * 2.5, radius: 8.713e6, density: 0.93, category: 'géante' },
+  { name: 'Capella B', mass: SOLAR_MASS * 2.5, radius: 6.954e6, density: 1.46, category: 'géante' },
+
+  { name: 'Bételgeuse', mass: SOLAR_MASS * 14, radius: 7.64e8, density: 5.5e-7, category: 'supergéante' },
+  { name: 'Rigel', mass: SOLAR_MASS * 21, radius: 5.43e7, density: 0.0018, category: 'supergéante' },
+  { name: 'Antares', mass: SOLAR_MASS * 12, radius: 5.52e8, density: 1.3e-6, category: 'supergéante' },
+  { name: 'Deneb', mass: SOLAR_MASS * 19, radius: 1.52e8, density: 1.8e-5, category: 'supergéante' },
+  { name: 'VY Canis Majoris', mass: SOLAR_MASS * 17, radius: 1.42e9, density: 5e-8, category: 'supergéante' },
+  { name: 'UY Scuti', mass: SOLAR_MASS * 7, radius: 1.188e9, density: 7e-8, category: 'supergéante' },
+  { name: 'Mu Cephei', mass: SOLAR_MASS * 19.2, radius: 9.72e8, density: 3.6e-7, category: 'supergéante' },
+
+  { name: 'PSR J0348+0432', mass: SOLAR_MASS * 2.01, radius: 13, density: 5.5e17, category: 'étoile à neutrons' },
+  { name: 'PSR J1614-2230', mass: SOLAR_MASS * 1.97, radius: 13, density: 5.4e17, category: 'étoile à neutrons' },
+  { name: 'PSR J0740+6620', mass: SOLAR_MASS * 2.14, radius: 13, density: 6e17, category: 'étoile à neutrons' },
+  { name: 'Vela Pulsar', mass: SOLAR_MASS * 1.4, radius: 12, density: 6e17, category: 'étoile à neutrons' },
+  { name: 'Crab Pulsar', mass: SOLAR_MASS * 1.4, radius: 12, density: 6e17, category: 'étoile à neutrons' },
+
+  { name: 'Cygnus X-1', mass: SOLAR_MASS * 21.2, radius: 62.4, density: 2.0e15, category: 'trou noir' },
+  { name: 'Sagittarius A*', mass: SOLAR_MASS * 4.154e6, radius: 1.224e7, density: 7.2e6, category: 'trou noir' },
+  { name: 'M87*', mass: SOLAR_MASS * 6.5e9, radius: 1.92e10, density: 0.12, category: 'trou noir' },
+  { name: 'V404 Cygni', mass: SOLAR_MASS * 9, radius: 26.5, density: 1.1e16, category: 'trou noir' },
+  { name: 'GRO J1655-40', mass: SOLAR_MASS * 6.3, radius: 18.6, density: 2.8e16, category: 'trou noir' },
+
+  { name: 'WD 0346+246', mass: SOLAR_MASS * 1.28, radius: 3000, density: 1.4e10, category: 'naine blanche' },
+  { name: 'BPM 37093', mass: SOLAR_MASS * 1.1, radius: 4000, density: 4e9, category: 'naine blanche' },
+  { name: 'Stein 2051 B', mass: SOLAR_MASS * 0.675, radius: 5800, density: 7.3e8, category: 'naine blanche' },
+  { name: 'G117-B15A', mass: SOLAR_MASS * 0.59, radius: 8500, density: 2.9e8, category: 'naine blanche' },
+  { name: 'ZZ Ceti', mass: SOLAR_MASS * 0.63, radius: 7500, density: 4.3e8, category: 'naine blanche' },
+  { name: 'IK Pegasi B', mass: SOLAR_MASS * 1.15, radius: 4500, density: 5.5e9, category: 'naine blanche' },
+  { name: 'GD 358', mass: SOLAR_MASS * 0.61, radius: 8200, density: 3.2e8, category: 'naine blanche' },
+  { name: 'PG 1159-035', mass: SOLAR_MASS * 0.59, radius: 7000, density: 4.7e8, category: 'naine blanche' },
+
+  { name: 'Spica', mass: SOLAR_MASS * 11.43, radius: 4.84e6, density: 1.7, category: 'étoile' },
+  { name: 'Regulus', mass: SOLAR_MASS * 3.8, radius: 2.569e6, density: 5.2, category: 'étoile' },
+  { name: 'Achernar', mass: SOLAR_MASS * 6.7, radius: 5.564e6, density: 0.49, category: 'étoile' },
+  { name: 'Acrux', mass: SOLAR_MASS * 17.8, radius: 5.74e6, density: 1.6, category: 'étoile' },
+  { name: 'Mimosa', mass: SOLAR_MASS * 16, radius: 6.09e6, density: 1.3, category: 'étoile' },
+  { name: 'Adhara', mass: SOLAR_MASS * 12.6, radius: 1.0e7, density: 0.15, category: 'géante' },
+  { name: 'Shaula', mass: SOLAR_MASS * 14.5, radius: 4.18e6, density: 4.6, category: 'étoile' },
+  { name: 'Bellatrix', mass: SOLAR_MASS * 8.6, radius: 4.17e6, density: 2.8, category: 'étoile' },
+  { name: 'Alnilam', mass: SOLAR_MASS * 40, radius: 2.39e7, density: 0.0077, category: 'supergéante' },
+  { name: 'Alnitak', mass: SOLAR_MASS * 33, radius: 1.40e7, density: 0.028, category: 'supergéante' },
+  { name: 'Mintaka', mass: SOLAR_MASS * 24, radius: 1.15e7, density: 0.043, category: 'géante' },
+
+  { name: 'Mira', mass: SOLAR_MASS * 1.2, radius: 2.85e8, density: 3.3e-6, category: 'géante' },
+  { name: 'R Leporis', mass: SOLAR_MASS * 2.5, radius: 2.88e8, density: 6.5e-6, category: 'géante' },
+  { name: 'Chi Cygni', mass: SOLAR_MASS * 2.1, radius: 3.17e8, density: 4.2e-6, category: 'géante' },
+  { name: 'T Cephei', mass: SOLAR_MASS * 1.5, radius: 3.29e8, density: 2.4e-6, category: 'géante' },
+
+  { name: 'RX J1856.5-3754', mass: SOLAR_MASS * 1.4, radius: 11, density: 7e17, category: 'étoile à neutrons' },
+  { name: 'PSR B1919+21', mass: SOLAR_MASS * 1.4, radius: 12, density: 6e17, category: 'étoile à neutrons' },
+  { name: 'PSR B1257+12', mass: SOLAR_MASS * 1.4, radius: 12, density: 6e17, category: 'étoile à neutrons' },
+  { name: 'PSR J1748-2446ad', mass: SOLAR_MASS * 1.4, radius: 12, density: 6e17, category: 'étoile à neutrons' },
+  { name: '4U 1820-30', mass: SOLAR_MASS * 1.4, radius: 11.5, density: 6.3e17, category: 'étoile à neutrons' },
+
+  { name: 'A0620-00', mass: SOLAR_MASS * 6.6, radius: 19.5, density: 2.5e16, category: 'trou noir' },
+  { name: 'GS 2000+25', mass: SOLAR_MASS * 7.5, radius: 22.1, density: 1.8e16, category: 'trou noir' },
+  { name: 'XTE J1550-564', mass: SOLAR_MASS * 9.1, radius: 26.8, density: 1.1e16, category: 'trou noir' },
+  { name: 'GRS 1915+105', mass: SOLAR_MASS * 14, radius: 41.3, density: 4.3e15, category: 'trou noir' },
+  { name: 'LMC X-1', mass: SOLAR_MASS * 10.9, radius: 32.1, density: 7.7e15, category: 'trou noir' },
+  { name: 'NGC 4889', mass: SOLAR_MASS * 2.1e10, radius: 6.2e10, density: 0.014, category: 'trou noir' },
+  { name: 'TON 618', mass: SOLAR_MASS * 6.6e10, radius: 1.95e11, density: 0.00037, category: 'trou noir' },
+  { name: 'IC 1101', mass: SOLAR_MASS * 4e10, radius: 1.18e11, density: 0.0024, category: 'trou noir' },
+
+  { name: 'GD 50', mass: SOLAR_MASS * 0.98, radius: 5400, density: 1.5e9, category: 'naine blanche' },
+  { name: 'GD 165', mass: SOLAR_MASS * 0.64, radius: 7800, density: 3.8e8, category: 'naine blanche' },
+  { name: 'LHS 3250', mass: SOLAR_MASS * 0.72, radius: 6500, density: 6.1e8, category: 'naine blanche' },
+  { name: 'WD 1856+534', mass: SOLAR_MASS * 0.52, radius: 9200, density: 1.8e8, category: 'naine blanche' },
+  { name: 'LP 145-141', mass: SOLAR_MASS * 0.61, radius: 7300, density: 4.1e8, category: 'naine blanche' },
+  { name: 'GD 394', mass: SOLAR_MASS * 1.05, radius: 4800, density: 3.8e9, category: 'naine blanche' },
+  { name: 'LHS 1126', mass: SOLAR_MASS * 0.68, radius: 7100, density: 5.2e8, category: 'naine blanche' },
+  { name: 'WD 0745+238', mass: SOLAR_MASS * 0.95, radius: 5600, density: 1.1e9, category: 'naine blanche' },
 ];
+
+export const getCategoryColor = (category: RealCelestialBody['category']): string => {
+  const colors = {
+    'planète': 'from-blue-50 to-cyan-50 border-blue-400',
+    'étoile': 'from-yellow-50 to-amber-50 border-yellow-400',
+    'géante': 'from-orange-50 to-red-50 border-orange-400',
+    'supergéante': 'from-red-50 to-pink-50 border-red-400',
+    'naine blanche': 'from-slate-50 to-blue-50 border-slate-400',
+    'étoile à neutrons': 'from-gray-50 to-slate-50 border-gray-500',
+    'trou noir': 'from-purple-50 to-gray-50 border-purple-500',
+  };
+  return colors[category];
+};
+
+export const getCategoryDescription = (category: RealCelestialBody['category']): string => {
+  const descriptions = {
+    'planète': 'Corps céleste en orbite autour d\'une étoile, sans fusion nucléaire interne.',
+    'étoile': 'Sphère de plasma en fusion nucléaire, émettant lumière et chaleur.',
+    'géante': 'Étoile évoluée ayant épuisé son hydrogène, en expansion importante.',
+    'supergéante': 'Étoile massive en fin de vie, extrêmement brillante et volumineuse.',
+    'naine blanche': 'Résidu stellaire ultra-dense, cœur refroidi d\'une étoile de masse faible ou moyenne.',
+    'étoile à neutrons': 'Objet compact extrême, composé presque entièrement de neutrons, vestige de supernova.',
+    'trou noir': 'Région de l\'espace où la gravité est si intense que rien ne peut s\'en échapper.',
+  };
+  return descriptions[category];
+};
+
+export const findMatchingCelestialBody = (mass: number, radius: number): RealCelestialBody | null => {
+  const density = calculateDensity(mass, radius);
+
+  let bestMatch: RealCelestialBody | null = null;
+  let bestDifference = Infinity;
+
+  for (const body of REAL_CELESTIAL_BODIES) {
+    const massDiff = Math.abs(Math.log10(mass) - Math.log10(body.mass));
+    const radiusDiff = Math.abs(Math.log10(radius) - Math.log10(body.radius));
+    const densityDiff = Math.abs(Math.log10(density) - Math.log10(body.density));
+
+    const totalDiff = densityDiff * 2 + massDiff + radiusDiff;
+
+    if (totalDiff < bestDifference) {
+      bestDifference = totalDiff;
+      bestMatch = body;
+    }
+  }
+
+  if (bestDifference < 5) {
+    return bestMatch;
+  }
+
+  return null;
+};
+
+export const calculateAutoRadius = (mass: number): number => {
+  if (mass < EARTH_MASS * 20) {
+    if (mass < EARTH_MASS * 0.5) {
+      return EARTH_RADIUS * Math.pow(mass / EARTH_MASS, 0.27);
+    } else {
+      return EARTH_RADIUS * Math.pow(mass / EARTH_MASS, 0.55);
+    }
+  } else if (mass < SOLAR_MASS * 0.08) {
+    const jup_mass = 1.898e27;
+    return 69911 * Math.pow(mass / jup_mass, 0.1);
+  } else if (mass < SOLAR_MASS * 1.3) {
+    return SOLAR_RADIUS * Math.pow(mass / SOLAR_MASS, 0.8);
+  } else if (mass < SOLAR_MASS * 8) {
+    return SOLAR_RADIUS * Math.pow(mass / SOLAR_MASS, 0.57);
+  } else if (mass < SOLAR_MASS * 60) {
+    return SOLAR_RADIUS * 15 * Math.pow(mass / (SOLAR_MASS * 20), 0.6);
+  } else {
+    const rsStar = calculateSchwarzschildRadius(mass);
+    if (mass < SOLAR_MASS * 3) {
+      return Math.max(10, rsStar * 2);
+    } else {
+      return Math.max(rsStar * 1.5, rsStar * 10 / Math.log10(mass / SOLAR_MASS));
+    }
+  }
+};
