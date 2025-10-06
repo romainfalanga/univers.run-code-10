@@ -352,7 +352,7 @@ export const GravitationalTimeDilationExperiment: React.FC = () => {
                 <p className="text-xs text-red-700 leading-relaxed">
                   Un horizon des événements s'est formé. Les formules de dilatation temporelle utilisées ici
                   ne sont valides qu'à l'<strong>extérieur</strong> de l'horizon. À l'intérieur d'un trou noir,
-                  les rôles du temps et de l'espace sont échangés, et les concepts habituels ne s'appliquent plus.
+                  les rôles du temps et de l'espace sont échangés, et les concepts habituels ne s\'appliquent plus.
                 </p>
               </div>
             </div>
@@ -490,24 +490,24 @@ export const GravitationalTimeDilationExperiment: React.FC = () => {
           </p>
           <p>
             <strong className="text-slate-700">Solution intérieure de Schwarzschild:</strong> Pour
-            l'observateur au centre d'une sphère de densité uniforme, le facteur est dτ/dt = (3/2)√(1 - Rs/R) - 1/2,
+            l'observateur au centre d\'une sphère de densité uniforme, le facteur est dτ/dt = (3/2)√(1 - Rs/R) - 1/2,
             où R est le rayon de l'astre.
           </p>
           <p>
             <strong className="text-slate-700">Multiplicateur temporel:</strong> Le multiplicateur affiché
             est l'inverse du facteur au centre: 1/(dτ/dt). Il représente combien de fois plus vite le temps
-            s'écoule pour un observateur lointain par rapport au centre de l'astre.
+            s'écoule pour un observateur lointain par rapport au centre de l\'astre.
           </p>
           <p>
             <strong className="text-slate-700">Interprétation physique:</strong> Plus un
             observateur est proche d'une grande concentration de masse-énergie, plus le temps
-            s'écoule lentement pour lui par rapport à un observateur éloigné. C'est la courbure de la
+            s'écoule lentement pour lui par rapport à un observateur éloigné. C\'est la courbure de la
             composante temporelle de l'espace-temps qui provoque ce ralentissement.
           </p>
           <div className="bg-amber-50 border-l-4 border-amber-400 p-3 rounded mt-3">
             <p className="text-xs text-amber-800">
               <strong>Limites de validité:</strong> Ces formules ne sont valides que lorsque R &gt; Rs.
-              Si R ≤ Rs, un trou noir se forme et ces équations ne s'appliquent plus à l'intérieur de l'horizon
+              Si R ≤ Rs, un trou noir se forme et ces équations ne s'appliquent plus à l\'intérieur de l'horizon
               des événements. Dans ce cas extrême, les rôles du temps et de l'espace sont inversés et les
               prédictions de la relativité générale deviennent contre-intuitives.
             </p>
